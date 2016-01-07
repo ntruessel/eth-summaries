@@ -1,0 +1,47 @@
+% !TeX root = ../Formelsammlung.tex
+\section{Kinematik}
+\subsection{Weg, Geschwindigkeit, Beschleunigung -- Eindimensional}
+\begin{equation}
+v(t) = \diff{}{t}x(t), \quad a(t) = \diff{v}{t} = \multidiff{x}{t}{2}
+\end{equation}
+\begin{equation}
+x(t) = \int_{t_0}^t\!v(t^\prime)\d t^\prime + x_0, \quad v(t) = \int_{t_0}^t\!a(t^\prime)\d t^\prime + v_0
+\end{equation}
+
+\subsection{Weg, Geschwindigkeit, Beschleunigung -- Zweidimensional}
+\subsubsection{Kartesische Koordinaten}
+\begin{equation}
+\vec{r}(t) = x(t)\cdot \e{x} + y(t) \cdot \e{y}
+\end{equation}
+\begin{equation}
+\vec{v}(t) = v_x(t)\cdot \e{x} + v_y(t) \cdot \e{y} = \diff{x}{t} \cdot \e{x} + \diff{y}{t} \cdot \e{y}
+\end{equation}
+\begin{equation}
+\vec{a}(t) = a_x(t)\cdot \e{x} + a_y(t) \cdot \e{y} = \diff{v_x}{t} \cdot \e{x} + \diff{v_y}{t} \cdot \e{y} = \multidiff{x}{t}{2} \cdot \e{x} + \multidiff{y}{t}{2} \cdot \e{y}
+\end{equation}
+
+\subsubsection{Kugelkoordinaten}
+\begin{equation}
+\vec{r}(t) = r(t)\cdot \e{r}
+\end{equation}
+\begin{equation}
+\vec{v}(t) = \diff{r}{t} \cdot \e{r} + r \cdot \diff{\e{r}}{t} = \diff{r}{t} \cdot \e{r} + r \cdot \diff{\varphi}{t} \cdot \e{\varphi} \quad\Rightarrow\quad  v_\varphi = r \cdot \diff{\varphi}{t} 
+\end{equation}
+\begin{equation}
+\vec{a}(t) = \left\{ \multidiff{r}{t}{2} - r \left( \diff{\varphi}{t} \right)^2 \right\} \cdot \e{r} + \left\{ 2 \diff{r}{t}\diff{\varphi}{t} + \multidiff{\varphi}{t}{2} \right\} \cdot \e{\varphi}
+\end{equation}
+
+\subsection{Gleichförmige Kreisbewegung}
+\begin{equation}
+\vec{r}(t) = r \cos\varphi (t) \, \e{x} + r \sin \varphi (t) \, \e{y},\quad r \text{ konstant }
+\end{equation}
+\begin{equation}
+\varphi(t) = \omega t, \quad \omega = \dfrac{2\pi}{T} 
+\end{equation}
+$\omega$ wird Winkelgeschwindigkeit genannt, Einheit: $\mathrm{rad} / s$ oder $ {}^{\circ} / s$
+\begin{equation}
+\vec{v}(t) = r \omega \e{\varphi} = - r \omega \sin \omega t \, \e{x} + r \omega \cos \omega t \, \e{y} , \quad \vec{\abs{v}} = r \omega
+\end{equation}
+\begin{equation}
+\vec{a}(t) = - \omega ^2 \vec{r}, \quad \vec{\abs{a}} = \omega ^2 r = \dfrac{v^2}{r}
+\end{equation}

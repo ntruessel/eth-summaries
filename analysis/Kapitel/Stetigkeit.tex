@@ -1,0 +1,90 @@
+% !TeX root = ../Main.tex
+\section{Stetigkeit}
+\begin{multicols}{2}
+	\begin{definition}[Grenzwert einer Funktion]\hfill\\
+		Eine Funktion $f$ hat int $x$ den Grenzwert $a$, falls für \highlight{jede} Folge $(x_n)$ mit $x_n \in \Omega$ und Grenzwert $x$ die Folge $(f(x_n))$ gegen a konvergiert.
+	\end{definition}
+	\begin{hint}
+		Grenzwerte von Funktionen können mit folgenden Tricks evtl. einfacher gezeigt werden, als via $\varepsilon$-$\delta$ Kriterium oder der Definition: 
+		\begin{enumerate}
+			\item Benutze eine Taylorreihenentwicklung. Für $x \to 0$ können Terme wie $x^5 - x^7 \cdots$ mittles der $\mathcal{O}$-Notation abgeschätzt werden.
+			\item Benutze $\lim f(x) = \lim \emath ^{\log f(x)} = \emath ^{\lim \log f(x)}$
+			\item Benutze Bernoulli de l'Hôpital falls möglich.
+		\end{enumerate}
+	\end{hint}
+	\\[1em]
+	\begin{definition}[Stetigkeit]\hfill\\
+		Eine Funktion $f$ ist an der Stelle $x_0$ stetig, falls 
+		\begin{enumerate}
+			\item $f(x_0)$ definiert ist.				
+			\item $\lim\limits_{x \to x_0} f(x)$ existiert.
+			\item $\lim\limits_{x \to x_0} f(x) = f(x_0) = f(\lim\limits_{x \to x_0} x)$
+		\end{enumerate}
+		Sind $f$ und $g$ an $x_0$ stetig, so sind auch $f + g, f \cdot g, f \circ g$ und wenn $g(x_0) \neq 0$ auch $f/g$ an $x_0$ stetig. \\ 
+		$f$ ist stetig an $x_0$ falls gilt
+		$$ \forall \varepsilon > 0 \, \exists \delta > 0 \, \forall x \, : \, \abs{x - x_0} < \delta \Rightarrow \abs{ f(x)-f(x_0) } < \varepsilon $$
+	\end{definition}
+		\begin{theorem}[Normale Stetigkeit]\hfill\\
+			$f: \Omega \subset \mathbb{R}^d \to \mathbb{R}^n $ ist stetig auf $\Omega$ falls gilt:
+			\begin{gather*}
+				\forall x_0 \in \Omega \, \forall \varepsilon > 0 \, \exists \delta > 0 \, \forall x \in \Omega\, : \\ 
+				\abs{x - x_0} < \delta \Rightarrow \abs{ f(x)-f(x_0) } < \varepsilon
+			\end{gather*}
+		\end{theorem}
+		\begin{theorem}[Gleichmässige Stetigkeit]\hfill\\
+			$f: \Omega \subset \mathbb{R}^d \to \mathbb{R}^n $ ist gleichmässig stetig auf $\Omega$ falls gilt:
+			\begin{gather*}
+				\forall \varepsilon > 0 \, \exists \delta > 0 \, \forall x, x_0 \in \Omega\, : \\ 
+				\abs{x - x_0} < \delta \Rightarrow \abs{ f(x)-f(x_0) } < \varepsilon
+			\end{gather*}
+		\end{theorem}
+		\begin{proofhelp}
+			Ist f auf einer kompakten Menge $K = \left[ a,b \right]$ stetig, so ist f auf $K$ gleichmässig stetig.
+		\end{proofhelp}
+		\begin{theorem}[Lipschitz Stetigkeit]\hfill\\
+			$f: \Omega \subset \mathbb{R}^d \to \mathbb{R}^n $ ist Lipschitz stetig auf $\Omega$ mit Lipschitzkonstante L falls gilt:
+			$$ \exists L \in \mathbb{R}^+ \, \forall x, x_0 \in \Omega \, : \, \norm{ f(x)-f(x_0) } \leq L \norm{x - x_0} $$
+		\end{theorem}
+		\begin{proofhelp}
+			Ist $f$ Lipschitz stetig, so ist $f$ gleichmässig stetig.
+		\end{proofhelp}
+		\begin{proofhelp}
+			$f: \left[ a,b \right] \to \mathbb{R}$ ist stetig $\Rightarrow$ $f(\left[ a,b \right])$ ist beschränkt und nimmt sein Infimum und Supremum an.
+		\end{proofhelp}
+		\\[1em]
+		\begin{theorem}[Zwischenwertsatz]
+			\begin{center}
+				$a < b, f:\left[ a, b \right] \to \mathbb{R}$ stetig mit $f(a) < f(b)$ $\Rightarrow$ $ \forall y \in \left[ f(a), f(b) \right] \, \exists c \in \left[ a, b \right] \, : f(c) = y$
+			\end{center}
+		\end{theorem}
+		\begin{theorem}
+			$f:\left[ a, b \right] \to \mathbb{R}$ stetig und streng monoton $\Rightarrow$ $\Image (f) = [c,d] = [f(a),f(b)]$ oder umgekehrt, $f:[a,b] \to [c,d]$ ist bijektiv und $f^{-1} : [c,d] \to [a,b]$ ist stetig.
+		\end{theorem}
+		\\[1em]
+		\begin{definition}[Punktweise Konvergenz]
+			Sei $(f_n)$ eine Folge von Funktionen und sei $f$ eine weitere Funktion. $(f_n)$ \highlight{konvergiert punktweise} gegen $f$ falls:
+			$$ \forall x \in \Omega \, : \,  \lim\limits_{n \to \infty} f_n (x) = f(x) $$
+		\end{definition}
+		\begin{theorem}
+			Obige Definition ist äquivalent zu:
+			$$ \forall \varepsilon > 0 \, \forall x \in \Omega \, \exists n_0 \in \mathbb{N} \, \forall n \geq n_0 \, : \, \abs{f_n (x) - f(x)} < \varepsilon $$
+		\end{theorem}
+		\begin{definition}[Gleichmässige Konvergenz]
+			Sei $(f_n)$ eine Folge von Funktionen und sei $f$ eine weitere Funktion.$(f_n)$ \highlight{konvergiert gleichmässig} gegen $f$ falls:
+			$$ \lim\limits_{k \to \infty} \sup\limits_{x \in \Omega} \abs{f_n(x) - f(x)} = 0$$
+		\end{definition}
+		\begin{theorem}
+			Obige Definition ist äquivalent zu:
+			$$ \forall \varepsilon > 0 \, \exists n_0 \in \mathbb{N} \, \forall x \in \Omega \, \forall n \geq n_0 \, : \, \abs{f_n (x) - f(x)} < \varepsilon $$
+		\end{theorem}
+		\begin{proofhelp}
+			Gleichmässige Konvergenz kann gezeigt werden, indem auf kompakten Intervallen für stetige $f_n$ $\sup$ durch $\max$ ersetzt wird. 
+			Dann kann das Maximum im Inneren mit der Ableitung gefunden werden und die Randbereiche noch separat untersucht werden.
+		\end{proofhelp}
+		\begin{theorem}
+			Wenn $(f_n) \xrightarrow{glm.} f$ und alle $f_n$ stetig, so ist $f$ auch stetig.
+		\end{theorem}
+		\begin{corollary}
+			Potenzreihen sind stetig im Inneren ihres Konvergenzkreises.
+		\end{corollary}
+\end{multicols}

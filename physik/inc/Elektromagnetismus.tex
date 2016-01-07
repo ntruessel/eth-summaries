@@ -1,0 +1,162 @@
+% !TeX root = ../Formelsammlung.tex
+\section{Elektromagnetismus}
+\subsection{Coulombsches Gesetz}
+\begin{equation}
+F_c = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}
+\end{equation}
+\begin{equation}
+\varepsilon_0 \equiv \frac{10^7}{4\pi c^2}\,\frac{\mathrm{C^2}}{\mathrm{N \cdot m^2}}
+\end{equation}
+\begin{equation}
+e = 1,60217\cdot 10^{-19} \,\mathrm{C}
+\end{equation}
+\subsection{Elektrisches Feld}
+Im Mittelpunkt des Koordinatensystemes befindet sich eine Punktladung $Q$. Das elektrische Feld ist:
+\begin{equation}
+\vec{E}\left(\vec{r}\right) \equiv \frac{\vec{F\left(\vec{r}\right)}}{q} = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}\frac{\vec{r}}{r}
+\end{equation}
+\subsection{Elektrische potentielle Energie}
+\begin{equation}
+E_{pot}^e\left(\vec{r}\right) = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r}
+\end{equation}
+\subsection{Elektrisches Potential}
+\begin{equation}
+V\left(\vec{r}\right) = \frac{E_{pot}^e\left(\vec{r}\right)}{q}
+\end{equation}
+Ist das Potential bekannt, so kann das elektrische Feld so berechnet werden:
+\begin{equation}
+\vec{E}\left(\vec{r}\right) = - \nabla V\left(\vec{r}\right)
+\end{equation}
+Die Spannung ist gleich dem Potentialunterschied zwischen 2 Punkten:
+\begin{equation}
+U = V\left(\vec{r_1}\right) - V\left(\vec{r_2}\right) = \int\limits_{r_1}^{r_2}\vec{E}\cdot \d \vec{r}
+\end{equation}
+\subsection{Elektrische Ladung in elektrischen und magnetischen Feldern}
+\subsection{Kraft auf einen elektrischen Strom}
+Die Kraft auf einen Leiter mit Querschnittsfläche $A$ und Länge $L$ in einem Magnetfeld $\vec{B}$ ist:
+\begin{equation}
+\vec{F} = L\vec{I} \times \vec{B}, \quad\text{für differentielle Elemente des Stromes: } \d\vec{F} = L \d\vec{I} \times \vec{B} = I \d\vec{L} \times \vec{B}
+\end{equation}
+\subsubsection{Lorentz-Kraft}
+Sei $\vec{E}$ das elektrische und $\vec{B}$ das magnetische Feld.
+\begin{equation}
+\vec{F} = \vec{F_E} + \vec{F_B} = q \left( \vec{E} + \vec{v} \times \vec{B} \right)
+\end{equation}
+\subsubsection{Bewegung einer Punktladung im elektrischen Feld}
+\begin{equation}
+1 \, \mathrm{eV} = 1,602 \cdot 10^{-19} \mathrm{J}
+\end{equation}
+Unter Wirkung der elektrischen Kraft erfährt ein Teilchen der Ladung $q$ und Masse $m$ die Beschleunigung (nicht relativistisch!)
+\begin{equation}
+\vec{a} = \frac{q}{m}\vec{E}
+\end{equation}
+\subsubsection{Bewegung einer Punktladung im Magnetschen Feld}
+Bewegt sich ein Teilchen der Ladung $q$, Masse $m$ und Geschwindigkeit $\vec{v}$ genau senkrecht zu einem homogenen Magnetfeld $\vec{B}$, so beschreibt es eine Kreisbahn mit Radius $r$:
+\begin{equation}
+r = \frac{m \gamma v}{q B}
+\end{equation}
+$\gamma$ bezeichnet den Lorentz-Faktor. Die Herleitung geschieht über die Lorentz-Kraft im B-Feld, welche der Zentripetalkraft (relativistisch, also klassische Formel mit $\gamma$ multiplizieren) gleichgesetzt wird.
+\subsection{Strom}
+\begin{equation}
+I\left(t\right) = \frac{\d Q}{\d t}, \qquad\mathrm{Stromdichte}\quad j = \frac{I}{A}
+\end{equation}
+\subsubsection{Driftgeschwindigkeit}
+Seien $e$ die Elementarladung, $n$ die Dichte der beweglichen Elektronen (in $m^{-3}$), $A$ die betrachtete Fläche und $v_D$ die Driftgeschwindigkeit der Elektronen. Es gilt:
+\begin{equation}
+I = -e n A  v_D
+\end{equation}
+Andernfalls kann die Driftgeschwindigkeit auch so bestimmt werden: $\tau$ ist die mittlere Zeit zwischen zwei Elektron-Ion Kollisionen, $a$ die Beschleunigung, $\vec{E}$ das elektrische Feld und $\mu = \frac{e\tau}{m}$ die Beweglichkeit der Elektronen.
+\begin{equation}
+\vec{v}_D = \vec{a} \tau = \frac{-e\vec{E}}{m}\tau = -\mu\vec{E}
+\end{equation}
+\subsubsection{Das ohmsche Gesetz}
+\begin{equation}
+U = R I = \left( \frac{L}{\sigma A} \right) I
+\end{equation}
+wobei $\sigma$ die Leitfähigkeit ist.
+\subsection{Kapazität}
+\begin{equation}
+Q = CV
+\end{equation}
+Wobei $Q$ die getrennte Ladung, $V$ die Potentialdifferenz und $C$ die Kapazität des Kondensators ist. \\
+Die gespeicherte Energie beträgt:
+\begin{equation}
+E = \frac{Q^2}{2C} = \frac{1}{2}CV^2
+\end{equation}
+\subsection{Der Fluss}
+Der Fluss $\d \Phi$ eines Vektorfeldes $\vec{F}$ durch eine infinitessimale Fläche $\d \vec{A}$ ($\d \vec{A}$ steht senkrecht auf $A$ und hat Betrag des Flächeninhalts) ist:
+\begin{equation}
+\d \Phi = \vec{F} \cdot \d \vec{A} = \abs{\vec{F}} \abs{d \vec{A}} \cos\vartheta
+\end{equation}
+$\vartheta$ bezeichnet den Winkel zwischen $\d \vec{A}$ und $\vec{F}$.
+Für eine endliche Fläche gilt 
+\begin{equation}
+\Phi = \iint \vec{F} \d \vec{A}
+\end{equation}
+Für den aus einem Volumen V austretenden Fluss $\Phi_{tot}$ gilt:
+\begin{equation}
+\Phi_{tot} = \varoiint\limits_{A = \partial V} \vec{F} \cdot \d \vec{A} = \iiint \left(\vec{\nabla} \cdot \vec{F} \right) \d V
+\end{equation}
+\subsection{Ladungs- und Stromdichte}
+\subsubsection{Ladungsdichte}
+\begin{equation}
+\rho \left( \vec{r} \right) = \frac{\d q}{\d V} \qquad \text{Raumladungsdichte}
+\end{equation}
+\begin{equation}
+Q = \int \d q = \iiint \rho \left( \vec{r} \right) \d V
+\end{equation}
+\subsubsection{Stromdichte}
+\begin{equation}
+I = \iint\limits_A \vec{j} \left( \vec{r} \right) \cdot  \d \vec{A}, \quad \d I = \vec{j} \left( \vec{r} \right) \cdot  \d \vec{A}
+\end{equation}
+\subsection{Maxwellgleichungen}
+\begin{align}
+\varepsilon_0 \left( \vec{\nabla} \cdot \vec{E} \right) &= \rho \\
+\left( \vec{\nabla} \cdot \vec{B} \right) &= 0 \\
+\vec{\nabla} \times \vec{E} &= - \pdiff{\vec{B}}{t} \\
+\vec{\nabla} \times \vec{B} &= \mu_0 \vec{j} + \varepsilon_0 \mu_0 \pdiff{\vec{E}}{t}
+\end{align}
+Dabei sind: 
+\begin{align*}
+\vec{E} \left(\vec{r}, t \right) &= \text{das elektrische Feld} \\
+\vec{B} \left(\vec{r}, t \right) &= \text{das magnetische Feld} \\
+\rho \left( \vec{r}, t \right) &= \text{die Ladungsdichte} \\
+\vec{j} \left( \vec{r}, t \right) &= \text{die Stromdichte}
+\end{align*}
+\subsection{Gausstheorem für das elektrische Feld}
+Grundlage ist die erste Maxwellgleichung. Daraus folgt mittels dem Theorem von Gauss für alle $\vec{r}$ die ausserhalb des betrachteten Volumens liegen:
+\begin{equation}
+\varepsilon_0 \varoiint\limits_{A=\partial V}\vec{E}\cdot\d \vec{A} = Q_{eingeschl.} \quad\Rightarrow\quad \abs{\vec{E}\left(\vec{r}\right)} = \frac{Q_{eingeschl.}}{\varepsilon_0 A} 
+\end{equation}
+\subsection{Divergenz des Magnetfeldes}
+Aus der zweiten Maxwellgleichung folgt direkt, dass der Fluss eines Magnetfeldes durch eine geschlossene Oberfläche immer gleich 0 ist.
+\subsection{Ampèresches Gesetz}
+Ist Folge der dritten Maxwellgleichung für $\pdiff{}{t} = 0$ (zeitunabhängige Vorgänge).
+\begin{equation}
+\vec{\nabla} \times \vec{B}\left(\vec{r}\right) = \mu_0 \vec{j}\left(\vec{r}\right)
+\end{equation}
+Mittels Stokes folgt:
+\begin{equation}
+\oint\limits_{C = \partial A} \vec{B} \d \vec{r} = \mu_0 I
+\end{equation}
+\subsection{Gesetz von Faraday}
+Betrachtet werden die Maxwellgleichungen für einen ladungs- und stromfreien Raum (Vakuum):
+\begin{equation}\label{Maxwell:Vakuum}
+\begin{cases}
+\vec{\nabla} \times \vec{E} &= - \pdiff{\vec{B}}{t} \\
+\vec{\nabla} \times \vec{B} &= \varepsilon_0 \mu_0 \pdiff{\vec{E}}{t}
+\end{cases}
+\end{equation}
+Daraus folgt:
+\begin{equation}
+U_{ind} = \oint\limits_{C = \partial A} \vec{E} \cdot \d \vec{r} = - \diff{\Phi_B}{t} = \diff{}{t}\iint\limits_A \vec{B} \cdot \d A
+\end{equation}
+\subsection{Elektromagnetische Wellen}
+Grundlage bilden die Gleichungen \eqref{Maxwell:Vakuum}. Davon wird je die Rotation gebildet, es ergibt sich:
+\begin{equation}
+\vec{\nabla}^2\vec{E} = \varepsilon_0 \mu_0 \pdiff{^2\vec{E}}{t^2} \quad\text{und}\quad \vec{\nabla}^2\vec{B} = \varepsilon_0 \mu_0 \pdiff{^2\vec{B}}{t^2}
+\end{equation}
+Wobei gilt:
+\begin{equation}
+\vec{\nabla}^2\xi = \pdiff{^2\xi}{x^2} + \pdiff{^2\xi}{y^2} + \pdiff{^2\xi}{z^2} = \varepsilon_0 \mu_0 \pdiff{^2\xi}{t^2} \equiv \frac{1}{v^2}\pdiff{^2\xi}{t^2}
+\end{equation}

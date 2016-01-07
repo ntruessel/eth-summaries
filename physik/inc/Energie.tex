@@ -1,0 +1,94 @@
+% !TeX root = ../Formelsammlung.tex
+\section{Energie und Arbeit}
+\subsection{Energie}
+\subsubsection{Energieerhaltung}
+\begin{align}
+\begin{split}
+E_{tot} 	&= E_{Masse} + E_{kin} + E_{pot} + E_{chem} + \text{usw.} \\
+		&= \text{konst.}
+\end{split}
+\intertext{aber für die Energie eines Körpers (ohne Reibung)}
+E &= E_{kin} + E_{pot} \neq \text{konst.} 
+\end{align}
+\subsubsection{Geschwindigkeitsparameter}
+\begin{equation}
+\beta \equiv \dfrac{v}{c} = \frac{pc}{E} = \sqrt{1 - \frac{(mc^2)^2}{E_{tot}^{2}}}
+\end{equation}
+\subsubsection{Relativistischer Impuls}
+\begin{equation}
+\vec{p} = \gamma m \vec{v}
+\end{equation}
+\begin{equation}
+\gamma \equiv \dfrac{1}{\displaystyle\sqrt{1 - \beta^2}} \qquad \text{Lorentzfaktor}
+\end{equation}
+\subsubsection{Masse-Energie Äquivalenz}
+\begin{equation}
+E = mc^2
+\end{equation}
+\begin{equation}
+E_{tot} = \sqrt{c^2p^2 + m^2c^4}
+\end{equation}
+\subsubsection{Kinetische Energie}
+Relativistisch:
+\begin{equation}
+E = mc^2 + E_{kin} \wedge E = \gamma mc^2 \quad\Rightarrow\quad E_{kin} = mc^2(\gamma - 1)
+\end{equation}
+Klassisch
+\begin{equation}
+E_{kin} = \dfrac{1}{2} m v^2
+\end{equation}
+\subsubsection{Potentielle Energie}
+\begin{equation}
+E_{pot} = m g h
+\end{equation}
+\subsection{Arbeit}
+Die Arbeit, die eine Kraft an einem Körper leistet, ist gleich dem Produkt der Komponente der Kraft längs der Verschiebung und der Verschiebung ($\vartheta$ ist der Winkel zwischen Kraft und Richtung).
+\begin{equation}
+W = F \Delta x \cos \vartheta
+\end{equation}
+\subsubsection{Arbeit und potentielle Energie}
+\begin{equation}
+\Delta E_{pot} = -W
+\end{equation}
+Diese Gleichung gilt allgemein für \textbf{konservative} Kräfte.
+\subsubsection{Bewegung in mehr Dimensionen}
+Gegeben sei ein Vektorfeld $\vec{F} = \vec{F}(\vec{r})$ und zwei Punkte $\vec{r_1}, \vec{r_2}$. Die geleistete Arbeit entlang einer differentiellen Strecke $\d W$ ist gleich $ \vec{F}(\vec{r}) \cdot \d \vec{r}$
+\begin{equation}
+W_{12} = \int_{\vec{r_1}}^{\vec{r_2}} \d W = \int_{\vec{r_1}}^{\vec{r_2}} \vec{F}(\vec{r}) \d \vec{r}
+\end{equation}
+Dieses Integral hängt vom Weg zwischen $\vec{r_1}$ und $\vec{r_2}$ ab!
+\subsection{Beziehung zwischen Kraft und potentieller Energie}
+\subsubsection{Der Gradient}
+\begin{equation}
+\nabla \equiv 
+\begin{pmatrix}
+\pdiff{}{x} \\[0.3em]
+\pdiff{}{y} \\[0.3em]
+\pdiff{}{z}
+\end{pmatrix}
+\end{equation}
+Es gilt:
+\begin{equation}
+\d f = \nabla f \d \vec{r}
+\end{equation}
+\begin{equation}
+\vec{F} = -\nabla E_{pot}
+\end{equation}
+\subsection{Arbeit-Energie-Theorem}
+Die Arbeit die an einem Körper zwischen zwei Punkten geleistet wird ist:
+\begin{equation}
+W_{12} = \int_{r_1}^{r_2} \vec{F} \d \vec{r} = \frac{1}{2}m\vec{v_2}^2 - \frac{1}{2}m \vec{v_1}^2
+\end{equation}
+\subsubsection{Die Fluchtgeschwindigkeit}
+Hier ist die wirkende Kraft die Gravitationskraft. Die Bahnkurve des Körpers hat keinen Einfluss, die Arbeit hängt nur von der radialen Bewegung des Körpers ab. Somit ergibt sich:
+\begin{equation}
+W_{12} = \frac{1}{2}m\vec{v_2}^2 - \frac{1}{2}m \vec{v_1}^2 = G m_E m \left( \frac{1}{r_2} - \frac{1}{r_1} \right)
+\end{equation}
+Nun wird abgeschätzt: $v_2 \to 0, r_2 \to \infty$, was zu folgender Gleichung führt:
+\begin{equation}
+\vec{v_1}^2 = 2 g r_1
+\end{equation}
+\subsection{Allgmeine potentielle Energie der Gravitationskraft}
+\begin{equation}
+E_{pot}(r) = - G \frac{m_e m}{r}
+\end{equation}

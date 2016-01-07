@@ -1,0 +1,218 @@
+% !TeX root = ../Main.tex
+\section{Differentialrechnung in $\mathbb{R}^n$}
+	\subsection{Stetigkeit}
+		\begin{definition}
+			Sei $\Omega \subset \mathbb{R}^n, f: \Omega \to \mathbb{R}, a \in \Omega$
+			\begin{enumerate}
+				\item $f$ hat den Grenzwert $c \in \mathbb{R}$, falls:
+				$$ \forall \varepsilon > 0 \, \exists \delta > 0 \, : \, \abs{x-a} < \delta \Rightarrow \abs{f(x) - c} < \varepsilon$$
+				\item $f$ heisst in $a$ stetig, wenn $\lim\limits_{x \to a} f(x) = f(a)$
+				\item $f$ heisst in $\Omega$ stetig, wenn $f$ in allen $a \in \Omega$ stetig ist.
+			\end{enumerate}
+		\end{definition}
+		\begin{proofhelp}
+			$f$ besitzt keinen Grenzwert in $a$, wenn sich bei Annäherungen an $a$ auf verschiedenen Kurven verschiedene Grenzwerte oder keine Grenzwerte ergeben.
+		\end{proofhelp}
+		\begin{proofhelp}
+			Die Summe, das Produkt und der Quotient (Nenner $\neq 0$) stetiger Funktionen sind stetig.
+		\end{proofhelp}
+		\begin{proofhelp}[Sandwich-Satz]
+			Seien $f,g,h$ Funktionen mit $\forall x \in B_r(a) \, : \, g(x) \leq f(x) \leq h(x)$. Wenn $\lim\limits_{x \to a} g(x) = L =\lim\limits_{x \to a} h(x)$, dann gilt $\lim\limits_{x \to a} f(x) = L$
+		\end{proofhelp}
+		\begin{hint}[Polarkoordinaten]
+			Für Grenzwertbestimmungen ist es oft nützlich, die Funktionen in Polarkoordinaten umzuschreiben. \\
+			Für 2-Dimensionale Funktionen gilt $x = r \cos \vartheta , y = r \sin \vartheta$ \\
+			Für 3-Dimensionale Funktionen gilt $x = r \sin \vartheta \cos \varphi , y = r \sin \vartheta \sin \varphi , z = r \cos \vartheta $
+		\end{hint}
+		\begin{hint}[Substitution]
+			Man berechnet den Grenzwert $\lim\limits_{(x,y) \to (a,b)} f(g(x,y))$ indem man zunächst den Grenzwert $t_0 = \lim\limits_{(x,y) \to (a,b)} g(x,y)$ bestimmt. Dann bestimmt man $\lim\limits_{t \to t_0} f(t)$.
+		\end{hint}
+	\subsection{Partielle Differnzierbarkeit}
+		\begin{definition}
+			$f$ heisst an der Stelle $x_0$ in Richtung $e_i$ (Einheitsvektor) partiell differenzierbar, falls der Limes
+			$$ \lim\limits_{h \to 0} \frac{f(x_0 + he_i) - f(x_0)}{h} $$
+			existiert. \\
+			Achtung: partielle Differenzierbarkeit $\not\Rightarrow$ Stetigkeit.
+		\end{definition}
+	\subsection{Differenzierbarkeit}
+		\begin{definition}
+			$f$ heisst an der Stelle $x_0$ differenziebar, falls es eine Abbildung $A: \mathbb{R}^n \to \mathbb{R}$ gibt, so dass
+			$$ f(x) = f(x_0) + A \cdot (x - x_0) + R(x_0,x), \qquad \text{wobei } \lim\limits_{x \to x_0} \frac{R(x_0,x)}{\abs{x - x_0}} = 0$$
+			In diesem Fall heisst $A$ Differential und wird mit $\d _{x_0}f$ bezeichnet.
+		\end{definition}
+		\begin{theorem}
+			Sei $f: \Omega \to \mathbb{R}$ differenzierbar an $x_0 \in \Omega$ Dann existieren die partiellen Ableitungen und das Differential kann als 
+			$$ \d _{x_0} f = \left( \pdiff{f}{x^1}(x_0), \pdiff{f}{x^2}(x_0), \dots ,\pdiff{f}{x^n}(x_0) \right)$$
+			dargestellt werden.
+		\end{theorem}
+		\begin{proofhelp}
+			$f$ ist differenzierbar $\Rightarrow$ $f$ ist stetig.
+		\end{proofhelp}
+		\begin{theorem}
+			Existieren die partiellen Ableitungen und sind stetig $\Rightarrow$ f ist differenzierbar.
+		\end{theorem}
+		\begin{proofhelp}[Untersuchen der Differenzierbarkeit]
+			\hfill
+			\begin{enumerate}
+				\item Ist $f$ in $x_0$ stetig? Wenn nein breche ab.
+				\item Ist $f$ in $x_0$ partiell differenzierbar? Wenn nein breche ab.
+				\item Sind die partiellen Ableitungen stetig? Wenn ja ist $f \in C^1$, wenn nein fahre fort.
+				\item Ist
+				$$ \lim\limits_{x \to x_0} \frac{f(x) - f(x_0) - \sum\limits_{i} \pdiff{f}{x^i}(x_0) \left( x^i - x_0^i \right)}{\abs{x - x_0}} = 0 $$
+				Wenn ja ist $f$ differenzierbar, wenn nein nicht.
+			\end{enumerate}
+		\end{proofhelp}
+	\subsection{Differentiationsregeln}
+		\begin{proofhelp}
+			Die Summenregel, Produktregel und Quotientenregel gelten genau wie in $\mathbb{R}$
+		\end{proofhelp}
+		\begin{theorem}[Kettenregel 1]
+			\hfill \\
+			Sei $g:\Omega\to\mathbb{R}$ in $x_0 \in\Omega$ differenzierbar. Sei $f:\mathbb{R}\to\mathbb{R}$ an $g(x_0)$ differenzierbar. Es gilt:
+			$$ \d (f \circ g)(x_0) = f^\prime(g(x_0)) \cdot \d g(x_0)$$
+		\end{theorem}
+		\begin{theorem}[Kettenregel 2]
+			\hfill \\
+			Seien $\Omega \subset \mathbb{R}^n, I \subset \mathbb{R}, g: I \to \Omega, t \mapsto (g_1(t), \dots , g_n(t)), f: \Omega \to \mathbb{R}$, sowie $g$ an $t_0$ und $f$ an $g(t_0)$ differenzierbar. Es gilt:
+			$$ \diff{}{t}(f \circ g)(t_0) = \d f(g(t_0)) \cdot g^\prime(t_0)$$
+		\end{theorem}
+	\subsection{Anwendungen}
+		\begin{theorem}[Richtungsableitung]
+			Die Ableitung von $f$ an $x_0$ in die Richtung des \highlight{normierten} Richtungsvektors $v$ ist:
+			$$ \dotp{\nabla f(x_0)}{v} $$
+		\end{theorem}
+		\begin{theorem}[Leibnitzregel für Parameterintegrale]
+			Für stetig differenzierbare Funktionen $\chi, \varphi, f$ gilt:
+			$$ \diff{}{\omega}\int\limits_{\chi(\omega)}^{\varphi(\omega)}f(x, \omega) \d x = \int\limits_{\chi(\omega)}^{\varphi(\omega)} \pdiff{f}{\omega}(x,\omega) \d x + f(\varphi(\omega),\omega)\cdot\varphi^\prime(\omega) - f(\chi(\omega),\omega)\cdot\chi^\prime(\omega)$$
+			Dies ist auch für konstante Grenzen anwendbar, dabei fallen die letzten beiden Terme der rechten Seite logischerweise weg.
+		\end{theorem}
+	\subsection{Gradient}
+		\begin{proofhelp}
+			Sei $f \in C^1(\Omega), x_0 \in \Omega$. Dann ist $\nabla f(x_0)$ die Richtung und $\abs{\nabla f(x_0)}$ der Betrag des steilsten Anstieges von $f$ an der Stelle $x_0$ \\
+			$\nabla f(x_0)$ steht senkrecht zur Niveaufläche von $f$ durch $x_0$
+		\end{proofhelp}
+	\subsection{Konservative Vektorfelder}
+	 	\begin{definition}
+		 	Ein Vektorfeld $v$ heisst konservativ, falls alle Wegintegrale entlang geschlossener Wege den Wert 0 haben.
+		 \end{definition}
+		 \begin{theorem}
+		 	Für stetige Vektorfelder gilt:
+		 	$$ V \text{ ist konservativ } \Leftrightarrow \exists f \in C^1 \, : \, V = \nabla f$$
+		 	In diesem Fall heisst $V$ Potentialfeld und $f$ ist das Potential von $V$.
+		 \end{theorem}
+		 \begin{proofhelp}
+		 	So findet man heraus, ob ein Vektorfeld ein Potential besitzt: 
+		 	\begin{enumerate}
+		 		\item Nimm die x-Komponente und integriere nach $\d x$. Finde eine Funktion $f$, die noch von einer Konstanten in Abhängigkeit von $y,z$ (falls 3D) abhängt.
+		 		\item Nimm die eintstandene Funktion inklusive Konstante und leite nach $y$ ab.
+		 		\item Setze nun die Ableitung mit der y-Komponente des Vektorfeldes gleich und bestimme so die Ableitung der Konstante aus Schritt 1 genauer.
+		 		\begin{enumerate}
+		 			\item Falls die Ableitung der Konstante von x abhängen sollte, brich ab. Das Vektorfeld hat kein Potential.
+		 		\end{enumerate}
+		 		\item Integriere die Ableitung der Konstanten nach y und bestimme so $f$ genauer (nun bis auf eine Konstante in Abhängigeit von $z$)
+		 		\item Leite wieder ab. Bestimme die Ableitung der fehlende Konstante wieder genauer. Falls die Ableitung der Konstanten 0 ist, so melde Erfolg, sonst Misserfolg.
+		 	\end{enumerate}
+		 \end{proofhelp}
+	\subsection{Wegintegrale}
+		\begin{definition}
+			Das Wegintegral vom Vektorfeld $v$ längs einer Kurve in Parameterdarstellung $\gamma$, so ist das Wegintegral
+			$$ \int\limits_{\gamma} \vec{v} \cdot \d \vec{s} = \int\limits_{\gamma} v(\gamma) \d \gamma := \int\limits_{a}^{b} \dotp{v(\gamma(t))}{\gamma^\prime(t)} \d t$$
+		\end{definition}
+		\begin{proofhelp}[Eigenschaften des Wegintegrales]
+			\hfill
+			\begin{enumerate}
+				\item Ist $\gamma$ nur stückweise $C^1$ und sind es nur endlich viele Teilstücke, so summieren wir einfach über die Teilstücke um das Wegintegral zu erhalten.
+				\item Das Wegintegral hängt nicht von der parametrisierung des Weges ab.
+				\item Für den selben Weg rückwärts ändert sich nur das Vorzeichen des Integerals.
+				\item Ist $V$ ein Vektorfeld mit Potential $f: \Omega \to \mathbb{R}$ und $\gamma: [a,b] \to \Omega$ der Weg, so gilt:
+				$$ \int\limits_{\gamma} V \d s = \int\limits_{\gamma} \d f = f(\gamma(b)) - f(\gamma(a)) $$
+			\end{enumerate}
+		\end{proofhelp}
+	\subsection{Höhere Ableitungen}
+		\begin{theorem}[Satz von Schwarz]
+			Ist $f \in C^k(\Omega)$ so sind alle partiellen Ableitungen vom Grad $\leq$ k von der Reihenfolge der Ableitungen unabhängig.
+		\end{theorem}
+	\subsection{Rotation}
+		\begin{definition}
+			Sei $V : \Omega \to \mathbb{R}^2$ ein Vektorfeld. Die skalare Rotation ist 
+			$$ \Rot(V) := \pdiff{v^2}{x} - \pdiff{v^1}{y} $$ 
+		\end{definition}			
+		\begin{proofhelp}
+			$\Rot(V) = 0$ ist notwendige Bedingung, damit ein Potential existieren kann.
+			$\Rot(V) = 0$ ist hinreichend, falls das Gebiet einfachzusammenhängend ist, d.h. keine Löcher enthält. Zudem muss $V$ stetig sein. Exaktere Definition von einfachzusammenhängend: Wegzusammenhängend und jeder geschlossene Weg lässt sich auf einen Punkt zusammenziehen.
+		\end{proofhelp}
+		\begin{definition}
+			Sei $V : \mathbb{R}^3 \to \mathbb{R}^3$ ein Vektorfeld. Es gilt
+			$$ \Rot(V) := \nabla \times V = 
+			\begin{pmatrix}
+				\pdiff{V_3}{y}-\pdiff{V_2}{z} \\[1ex]
+				\pdiff{V_1}{z}-\pdiff{V_3}{x} \\[1ex]
+				\pdiff{V_2}{x}-\pdiff{V_1}{y} 
+			\end{pmatrix}			 $$ 
+		\end{definition}	
+	\subsection{Divergenz}
+		\begin{definition}
+			Sei $V : \mathbb{R}^3 \to \mathbb{R}^3$ ein Vektorfeld. Es gilt
+			$$ \div(V) := \nabla \cdot V = \pdiff{V_1}{x} + \pdiff{V_2}{y} + \pdiff{V_3}{z} $$ 
+		\end{definition}	
+	\subsection{Quadratische Näherung in $\mathbb{R}^n$}
+		\begin{proofhelp}
+			Sei $f: \mathbb{R}^n \to \mathbb{R}$ eine $C^2$-Funktion, sowie $x_0,x_1 \in \mathbb{R}^n$
+			Die quadratische Näherung von $f$ lautet:
+			$$
+				f(x_1) = f(x_0) + \nabla f(x_0) (x_1 - x_0) + \frac{1}{2}(x_1 - x_0)(\nabla^2f(x_0))(x_1 -x_0)^T + r
+			$$
+		\end{proofhelp}
+		\begin{proofhelp}[Hessematrix]
+			Die Hessemathrix von f $\nabla^2f$ lautet:
+			$$ 
+			\nabla^2f = 
+			\begin{pmatrix}
+			\pdiff{f^2}{x^1\partial x^1} 	& \cdots & \pdiff{f^2}{x^1\partial x^n} \\
+			\vdots							& \ddots & \vdots						\\
+			\pdiff{f^2}{x^n\partial x^1} 	& \cdots & \pdiff{f^2}{x^n\partial x^n} \\
+			\end{pmatrix}
+			$$
+		\end{proofhelp}
+	\subsection{Extema}
+		\begin{definition}
+			Ein Punkt $x_0 \in \mathbb{R}^n$ mit $ \d f(x_0) = 0$ heisst kritischer Punkt von f.
+		\end{definition}
+		\begin{proofhelp}
+			Sei $x_0$ ein kritischer Punkt.
+			\begin{enumerate}
+				\item Falls $\nabla^2f(x_0)$ positiv definit ist, so ist $x_0$ ein lokales Minimum. (Alle Eigenwerte > 0)
+				\item Falls $\nabla^2f(x_0)$ negativ definit ist, so ist $x_0$ ein lokales Maximum. (Alle Eigenwerte < 0)
+				\item Falls $\nabla^2f(x_0)$ indefinit, so ist $x_0$ ein Sattelpunkt.	(Eigenwerte > 0 und < 0)
+				\item Falls $\nabla^2f(x_0)$ singulär, ist der kritische Punkt entartet.
+			\end{enumerate}
+		\end{proofhelp}		
+	\subsection{Vektorwertige Funktionen}
+		Sei $\Omega \subset \mathbb{R}^n, f = (f^i) : \mathbb{R}^n \to \mathbb{R}^l, f^i : \Omega \to \mathbb{R}$ \\
+		\begin{definition}
+			$f$ heisst differenzierbar, wenn jede Komponente differenzierbar ist.
+		\end{definition}
+		\begin{proofhelp}[Jacobi-Matrix]
+			Die Jacobi-Matrix ist eine Darstellung des Differentials von f:
+			$$
+			\d f(x_0) = 
+				\begin{pmatrix}
+					\pdiff{f^1}{x^1}(x_0) 	& \cdots & \pdiff{f^1}{x^n}(x_0) \\
+					\vdots					& \ddots & \vdots				\\
+					\pdiff{f^l}{x^1}(x_0)	& \cdots & \pdiff{f^l}{x^n}(x_0) \\
+				\end{pmatrix}
+			$$
+		\end{proofhelp}
+		\begin{proofhelp}[Regeln]
+			\hfill
+			\begin{enumerate}
+				\item Für Multiplikation mit Skalar und Addition zweier Funktionen verhält sich dieses Differential identisch wie das in einer Dimension.
+				\item Für das Skalarprodukt gilt:
+				$$ 
+					\d (\dotp{f}{g})(x_0) = \dotp{f(x_0)}{(\d g)(x_0)} + \dotp{(\d f)(x_0)}{g(x_0)}, \quad\text{ wobei } \dotp{f(x_0)}{(\d g)(x_0)} = \sum\limits_{i=1}^{l}(f^i(x_0)\cdot (\d g^i)(x_0))
+				$$
+			\end{enumerate}
+		\end{proofhelp}
+		\begin{proofhelp}[Kettenregel]
+			Die Kettenregel gilt wie im 1D Fall, nur dass hier Matrixmultiplikationen durchgeführt werden müssen.
+		\end{proofhelp}

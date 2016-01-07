@@ -1,0 +1,91 @@
+% !TeX root = ../Formelsammlung.tex
+\section{Dynamik}
+\subsection{Der lineare Impuls}
+\begin{equation}
+\vec{p} = m \vec{v}
+\end{equation}
+\subsection{Newtons Gesetze}
+\subsubsection{Trägheit}
+Für isolierte Systeme gilt:
+\begin{equation}
+\vec{p}_{tot} = \text{konst.} \Rightarrow \diff{\vec{p}_{tot}}{t} = 0
+\end{equation}
+Enthält das System nur einen Körper so folgt:
+\begin{equation}
+\diff{\vec{p}}{t} = \diff{(m \vec{v})}{t} = m \diff{\vec{v}}{t} = 0 \quad\Rightarrow\quad \vec{v}(t) = \text{konst.} \quad\Rightarrow\quad \vec{a}(t) = 0
+\end{equation}
+D. h. ein isolierter Körper bewegt sich gleichförmig.
+\subsubsection{Aktionsprinzip}
+\begin{equation}
+\vec{F} \equiv \diff{\vec{p}}{t} \quad\Rightarrow\quad \vec{F} = m \vec{a}(t)
+\end{equation}
+\subsubsection{Aktion = Reaktion}
+Wir betrachten ein System mit zwei Körpern A und B:
+\begin{gather}
+\vec{p}_{tot} = \vec{p}_A + \vec{p}_B = \text{konst.} \quad\Rightarrow\quad
+\diff{\vec{p}_{tot}}{t} = \diff{\vec{p}_A}{t} + \diff{\vec{p}_B}{t} = 0 \quad\Rightarrow \notag\\
+\vec{F}_A + \vec{F}_B = 0 \quad\Rightarrow\quad
+\vec{F}_A = - \vec{F}_B
+\end{gather}
+\subsection{Raketenantrieb}
+Wir definieren folgende Grössen
+\begin{itemize}
+\item $v(t)$ Geschwindigkeit bezüglich festem Koordinatensystem.
+\item $u$ Konstante Ausstossgeschwindigkeit des Gases \textit{relativ zur Rakete}. Es gilt $u > 0$.
+\item $M(t)$ Gesamtmasse der Rakete zum Zeitpunkt $t$.
+\end{itemize}
+Zum Zeitpunkt $t$ hat die Rakete einen Impuls von $p(t) = M(t)v(t)$. Zur Zeit $t^\prime = t + \mathrm{d}t$ hat sie eine Masse von $M(t) - \d m$ und eine Geschwindigkeit von $v(t) + \d v$. Es für den Impuls gilt:
+\begin{equation}
+\begin{split}
+p(t^\prime) &= M(t)v(t) + M(t)\d v - v(t) \d m - \d m \d v + v(t) \d m - u \d m \\
+	 &\approx  M(t)v(t) + M(t)\d v - u \d m 
+\end{split}
+\end{equation}
+Aus der Impulserhaltung folgt
+\begin{equation}
+\begin{split}
+p(t^\prime) - p(t)	& \approx M(t)v(t) + M(t)\d v - u \d m - M(t)v(t) \\
+					& = M(t)\d v - u \d m \\
+					& \equiv 0
+\end{split}
+\end{equation}
+\begin{equation}
+M(t) \d v = u \d m \quad\Rightarrow\quad M(t) \diff{v}{t} = u \diff{m}{t}
+\end{equation}
+\begin{equation}
+F = u \diff{m}{t}
+\end{equation}
+Durch Integration erhalten wir:
+\begin{equation}
+v = u \ln \left(\dfrac{1}{1 - m/M_0} \right)
+\end{equation}
+wobei m(t) die Gesamtmasse \textbf{des ausgestossenen Gases} zur Zeit t beschreibt.
+\subsection{Harmonische Schwingungen}
+\begin{equation}
+\begin{aligned}
+&x(t) = A \sin \left( \omega t + \delta \right) \\
+&v(t) = A \omega \cos \left( \omega t + \delta \right) \\
+&a(t) = -A \omega ^2 \sin \left( \omega t + \delta \right) = - \omega ^2 x(t)
+\end{aligned} \qquad
+T = \dfrac{2 \pi}{\omega}, \quad f = \nu = \dfrac{1}{T}
+\end{equation}
+\subsubsection{Die Differentialgleichung der harmonischen Bewegung}
+\begin{equation}
+F(t) = -kx(t), \quad \text{wobei hier} \enspace k = m \omega ^2
+\end{equation}
+\begin{equation}
+\multidiff{x}{t}{2} + \dfrac{k}{m}x = 0
+\end{equation}
+Setzt man $x(t) = A \sin \left( \omega t + \delta \right)$ als Lösung ein, erhält man
+\begin{equation}
+\omega = \sqrt{\dfrac{k}{m}} \quad\Rightarrow\quad T = 2\pi\sqrt{\dfrac{m}{k}}
+\end{equation}\\
+wobei k die Rückstellkraftkonstante (Proportionalitätsfaktor zwischen Verschiebung und Rückstellkraft) ist.
+\subsection{Gravitation}
+\begin{equation}
+\vec{F}_{12} = -\dfrac{G m_1 m_2}{r_{12}^2} \cdot \dfrac{\vec{r}_{12}}{r_{12}}
+\end{equation}
+\subsection{Drehimpuls und -moment}
+Drehimpuls: $$\vec{L} \equiv \vec{r} \times \vec{p} \equiv m \left( \vec{r} \times \vec{v} \right)$$ 
+Drehmoment: $$\vec{M} \equiv \vec{r} \times \vec{F} = \diff{\vec{L}}{t}$$ 
+Wirkt kein Drehmoment bleibt der Drehimpuls erhalten.

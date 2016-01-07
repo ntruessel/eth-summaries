@@ -1,0 +1,57 @@
+% !TeX root = ../Formelsammlung.tex
+\section{Wellen}
+\subsection{Die Wellenfunkton}
+Eine Welle ist von Ort und Zeitpunkt abhängig:
+\begin{equation}
+\xi = \xi (x, t)
+\end{equation}
+wobei Ortsabhängigkeit die Form der Welle und die Zeitabhängigkeit die Ausbreitung der Welle beschreiben. Für die Ausbreitungsgeschwindigkeit $v$ kann man auch folgende Gleichung formulieren ($+$ für Ausbreitung in negative x-Richtung, $-$ für Ausbreitung in positive x-Richtung): 
+\begin{equation}
+\xi (x, t) = \xi(t \pm vt)
+\end{equation}
+\subsection{Die harmonische Welle}
+\begin{equation}
+\xi (x, t) = \xi _0 \sin \left( k \left( x \pm vt \right) \right)
+\end{equation}
+wobei $k$ die Wellenzahl und $\xi _0$ die Amplitude ist. Weitere Beziehungen sind:
+\begin{equation}
+k = \dfrac{2 \pi}{\lambda}, \qquad f = \nu = \dfrac{\omega}{2 \pi} \quad\Leftrightarrow\quad \omega = 2 \pi \nu
+\end{equation}
+Somit kann man die Wellengleichung auch so formulieren:
+\begin{equation}
+\xi (x, t) = \xi _0 \sin \left( k x \pm \omega t  \right), \qquad \text{wobei} \enspace v = \dfrac{\omega}{k} = \nu \lambda
+\end{equation}
+\subsection{Die Wellengleichung}
+\begin{equation}
+\pdiff{^2 \xi}{t^2} - v^2 \pdiff{^2 \xi}{x^2} = 0
+\end{equation}
+Lösung:
+\begin{equation}
+\xi (x, t) = f(x -vt) - g(x + vt)
+\end{equation}
+\subsection{Seilwellen}
+\begin{equation}
+\text{Längendichte:} \quad \rho = \frac{M}{L} \quad\Rightarrow\quad \d m = \rho \d x
+\end{equation}
+\begin{equation}
+v = \pm \sqrt{\frac{S}{\rho}}
+\end{equation}
+\subsection{Wellen in Festkörpern}
+Die relative Längendehnung eines Stabes ist 
+\begin{equation}
+\varepsilon = \dfrac{\ell}{\Delta \ell} 
+\end{equation}
+Das Hookesche Gesetz lautet darauf angepasst:
+\begin{equation}
+F = Y \! A \varepsilon, \quad \text{wobei } Y \text{ das Elastizitätsmodul bezeichnet.}
+\end{equation}
+\subsubsection{Longitudinale elastische Welle}
+Für die Ausbreitungsgeschwindigkeit $v$ der longitudinalen elastischen Welle in einem Festkörper gilt:
+\begin{equation}
+v = \sqrt{\dfrac{Y}{\rho}} 
+\end{equation}
+wobei $\rho$ hier die Volumendichte bezeichnet und $Y$ das oben erwähnte Elastizitätsmodul ist.
+\subsection{Superposition harmonischer Wellen}
+\begin{equation}
+\xi (x_1, \Delta x, t) = \underbrace{2A \cos \left\{ \dfrac{1}{2} \left( \delta + k \Delta x \right) \right\}}_{\text{Amplitude}} \underbrace{ \sin \left\{ kx_1 - \omega t + \dfrac{1}{2} \left( \delta + k \Delta x \right) \right\}}_{\text{harmonische Welle}}
+\end{equation}

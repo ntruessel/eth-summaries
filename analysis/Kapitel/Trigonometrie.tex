@@ -1,0 +1,80 @@
+% !TeX root = ../Main.tex
+\section{Trigonometrie}
+	\begin{definition}[Hyperbelfunktionen]
+		\begin{align*}
+			\sinh x &= \frac{1}{2} \left( \emath^x - \emath^{-x} \right) & &: \mathbb{R} \to \mathbb{R} \\
+			\cosh x &= \frac{1}{2} \left( \emath^x + \emath^{-x} \right) & &: \mathbb{R} \to [1,\infty) \\
+			\tanh x &= \frac{\sinh x}{\cosh x} = \frac{\emath^x - \emath^{-x}}{\emath^x + \emath^{-x}} & &: \mathbb{R} \to (-1,1)
+		\end{align*}
+	\end{definition}
+	\begin{proofhelp}[Potenzreihenentwicklungen diverser Funktionen]
+		\begin{align*}
+			\emath ^x &= \sum\limits_{n = 0}^{\infty} \frac{x^n}{n!} & &= 1 + x + \frac{x^2}{x!} + \frac{x^3}{3!} + \cdots \\
+			\sin x &= \sum\limits_{n = 0}^{\infty} \left( -1 \right)^n \frac{x^{2n + 1}}{\left( 2n+ 1 \right) !} & &= x - \frac{x^3}{3!} +  \frac{x^5}{5!} \mp \cdots \\
+			\cos x &= \sum\limits_{n = 0}^{\infty} \left( -1 \right)^n \frac{x^{2n}}{\left( 2n \right) !} & &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} \mp \cdots \\
+			\sinh x &= \sum\limits_{n = 0}^{\infty} \frac{x^{2n + 1}}{\left( 2n+ 1 \right) !} & &= x + \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots \\
+			\cosh x &= \sum\limits_{n = 0}^{\infty} \frac{x^{2n}}{\left( 2n \right) !} & &= 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \cdots
+		\end{align*}
+	\end{proofhelp}
+	\begin{multicols}{2}
+	\subsection{Werte}
+		\begin{center}
+			\begin{tabular}{| C{1cm} | C{1cm} || C{1cm} | C{1cm} | C{1cm} | C{1cm} |}
+				\hline
+				\rowcolor[gray]{0.9}
+				\alpha 				& 	\alpha		&	\sin\alpha			&	\cos\alpha			&	\tan\alpha			\tabularnewline\hline
+				0					&	0			&	0					&	1					&	0					\tabularnewline\hline
+				\frac{\pi}{6}		&	30^\circ		&	\frac{1}{2}			&	\frac{\sqrt{3}}{2}	&	\frac{\sqrt{3}}{3}	\tabularnewline\hline
+				\frac{\pi}{4}		&	45^\circ		&	\frac{\sqrt{2}}{2}	&	\frac{\sqrt{2}}{2}	&	1					\tabularnewline\hline
+				\frac{\pi}{3}		&	60^\circ		&	\frac{\sqrt{3}}{2}	&	\frac{1}{2}			&	\sqrt{3}				\tabularnewline\hline
+				\frac{\pi}{2}		&	90^\circ		&	1					&	0					&	\pm\infty			\tabularnewline\hline
+			\end{tabular}
+		\end{center}
+	\subsection{Umformungen}
+		\begin{proofhelp}[Symmetrien]
+			\begin{align*}
+				\sin \left( -x \right) &= -\sin \left( x \right) \\
+				\cos \left( -x \right) &= \cos \left( x \right) \\
+				\tan \left( -x \right) &= -\tan \left( x \right) \\[1em]
+				\sin \left( x \right) &= \sin \left( \pi - x \right) \\
+				\cos \left( x \right) &= -\cos \left( \pi - x \right) \\
+				\tan \left( x \right) &= -\tan \left( \pi - x \right)
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Summen]
+			\begin{align*}
+				\sin x + \sin y &= 2 \sin \frac{x + y}{2} \cos \frac{x - y}{2} \\
+				\cos x + \cos y &= 2 \cos \frac{x + y}{2} \cos \frac{x - y}{2} \\
+				\cos x - \cos y &= 2 \sin \frac{x + y}{2} \sin \frac{x - y}{2} 
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Produkte]
+			\begin{align*}
+				\sin x \cdot \sin y &= \frac{1}{2}\left( \cos \left( x - y \right) - \cos \left( x + y \right) \right) \\
+				\cos x \cdot \cos y &= \frac{1}{2}\left( \cos \left( x - y \right) + \cos \left( x + y \right) \right) \\
+				\sin x \cdot \cos y &= \frac{1}{2}\left( \sin \left( x - y \right) + \sin \left( x + y \right) \right) 
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Additionstheoreme]
+			\begin{align*}
+				\sin \left( x \pm y \right) &= \sin x \cdot \cos y \pm \cos x \cdot \sin y \\
+				\cos \left( x \pm y \right) &= \cos x \cdot \cos y \mp \sin x \cdot \sin y \\
+				\sin \left( 2x \right) &= 2 \sin x \cos x \\
+				\cos \left( 2x \right) &= \cos^2 x - \sin^2 x 
+			\end{align*}
+			\begin{align*}
+				\sin \left( x + y \right) \cdot \sin \left( x - y \right) &= \cos^2 y - \cos^2 x \\
+							&= \sin^2 x - \sin^2 y \\
+				\cos \left( x + y \right) \cdot \cos \left( x - y \right) &= \cos^2 y - \sin^2 x
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Potenzen]
+			\begin{align*}
+				\sin^2 x &= \frac{1}{2} \left( 1 - \cos \left( 2x \right) \right) \\
+				\sin^3 x &= \frac{1}{4} \left( 3 \sin x - \sin \left( 3x \right) \right) \\
+				\cos^2 x &= \frac{1}{2} \left( 1 + \cos \left( 2x \right)\right) \\
+				\cos^3 x &= \frac{1}{4} \left( 3 \cos x + \cos \left( 3x \right)\right) \\
+				\tan^2 x &= \frac{1 - \cos \left( 2x \right)}{1 + \cos \left( 2x \right)}
+			\end{align*}
+		\end{proofhelp}
+	\end{multicols}

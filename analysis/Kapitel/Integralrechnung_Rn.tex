@@ -1,0 +1,58 @@
+% !TeX root = ../Main.tex
+\section{Integralrechnung in $\mathbb{R}^n$}
+	\subsection{$\mathbb{R}^2$}
+		In $\mathbb{R}^2$ leiten wir das Integral über einem Rechteck analog zum Fall in $\mathbb{R}$ her. Wir zerlegen das Rechteck in Teilrechtecke, wählen in den Teilrechtecken je einen Zwischenpunkt und summieren auf. \\
+		\begin{theorem}[Fubini]
+			Sei $Q = [a,b]\times[c,d] \subset \mathbb{R}^2$ und $f \in C^0(Q)$ Dann gilt:
+			$$ \iint\limits_{Q} f \d \mu = \int\limits_a^b\left(\int\limits_c^d f(x,y)\cdot \d y \right) \d x = \int\limits_c^d\left(\int\limits_a^b f(x,y)\cdot \d x \right) \d y
+			$$
+		\end{theorem}
+		\\[1em]
+		\begin{definition}[Normbereich]
+			$D \subset \mathbb{R}^2$ heisst Normbereich bezgl. der x-Achse bzw. y-Achse falls es stetige Funktionen $f,g$ bzw. $\overline{f}, \overline{g}$ gibt mit
+			$$ D = \{(x,y) \vert a \leq x \leq b \wedge g(x) \leq y \leq h(x)\} \quad\text{bzw.}\quad D = \{(x,y) \vert \overline{a} \leq y \leq \overline{b} \wedge \overline{g}(y) \leq x \leq \overline{h}(y)\} $$
+		\end{definition}
+		\begin{theorem}[Integration über Normbereich]
+			Sei $f$ stetig auf einem Normalbereich
+			\begin{enumerate}
+				\item $D = \{(x,y) \vert a \leq x \leq b \wedge g(x) \leq y \leq h(x)\}$, so gilt:
+				$$ \iint\limits_{D} f \d \mu = \int\limits_a^b\left(\int\limits_{g(x)}^{h(x)} f(x,y)\cdot \d y \right) \d x	$$
+				\item $D = \{(x,y) \vert \overline{a} \leq y \leq \overline{b} \wedge \overline{g}(y) \leq x \leq \overline{h}(y)\} $, so gilt:
+				$$ \iint\limits_{D} f \d \mu = \int\limits_{\overline{a}}^{\overline{b}}\left(\int\limits_{\overline{g}(y)}^{\overline{h}(y)} f(x,y)\cdot \d x \right) \d y	$$
+			\end{enumerate}
+		\end{theorem}
+	\subsection{$\mathbb{R}^3$}
+		In $\mathbb{R}^3$ ersetzen wir die Rechtecke von oben durch Quader. \\
+		Analog zum Satz von Fubini, können auch in $\mathbb{R}^3$ die Integrale vertauscht werden, wenn über einem Normalbereich integriert wird.\\
+		\begin{theorem}[Integration über Normalbereich]
+			Sei $f$ stetig auf einem Normalbereich D,
+			$$ D = \{ (x,y,z) \vert a \leq x \leq b \wedge g(x) \leq y \leq h(x) \wedge \varphi(x,y) \leq z \leq \psi(x,y)\} $$
+			dann gilt:
+			$$ \iiint\limits_{D} f \d \mu = \int\limits_{a}^b  \int\limits_{g(x)}^{h(x)}  \int\limits_{\varphi(x,y)}^{\psi(x,y)} f \d z  \d y  \d x $$
+		\end{theorem}
+		\\[1em]
+		\begin{theorem}[Substitution]
+			Sei $U,V \subset \mathbb{R}^n$ offen, $\Phi: U \to V$ eine bijektive, stetig differenzierbare Funktion mit $\forall \vec{y} \in U \, : \, \det (\Phi(\vec{y})) \neq 0$, sowie $f: V \to \mathbb{R}$ stetig. Dann gilt:
+			$$ \int\limits_{V = \Phi(U)} f(\vec{x}) \d \mu (\vec{x}) = \int\limits_U f(\Phi(\vec{y})) \abs{\det \d \Phi(y)} \d \mu (y) $$
+		\end{theorem}
+		\begin{shortcut}[Substitution durch Kugelkoordinaten]\hfill\\
+			Beispiel: $ \int_V 1 \d\mu$ mit $V = \{(x,y,z)\vert x^2 + y^2 + z^2 \wedge x,y,z \geq 0\}$
+			$$\Phi(r,\vartheta, \varphi) = (r \cos \vartheta \cos \varphi, r \sin\vartheta \cos\varphi, r \sin\varphi ), \quad \det(\d \Phi) = r^2 \cos \varphi$$
+			$$ \int_V 1 \d\mu = \int_0^1\int_0^{\pi/2}\int_0^{\pi/2} r^2 \cos \varphi \d\varphi \d\vartheta \d r = \pi / 6$$
+		\end{shortcut}
+		\begin{shortcut}[Substitution durch Polarkoordinaten]\hfill\\
+			$$\Phi(r, \varphi) = (r \cos \varphi, r \sin\varphi ), \quad \det(\d \Phi) = r$$
+		\end{shortcut}
+	\subsection{Satz von Green}
+		\begin{theorem}
+			Sei $\Omega \subset \mathbb{R}^2$ ein Gebiet dessen Rand $\partial \Omega$ eine stückweise $C^1$ Parameterdarstellung hat. 
+			Sei $U$ eine offene Menge mit $\Omega \subset U$ und $f = \pdiff{Q(x,y)}{x} - \pdiff{P(x,y)}{y}$, wobei $P,Q \in C^1(U)$. Dann gilt
+			$$ \iint\limits_\Omega f \d \mu = \iint\limits_{\Omega} \left( \pdiff{Q(x,y)}{x} - \pdiff{P(x,y)}{y} \right) \d\mu(x,y) = \int\limits_{\partial\Omega} P \d x + Q \d y $$
+			wobei $\partial\Omega$ so parametrisiert wird, dass $\Omega$ zur Linken des Randes liegt. 
+		\end{theorem}
+		\begin{hint}[Ein Beispiel]\hfill\\
+		$F(x,y)=(y+3x,y-2x), \, \Omega = \text{Ellipse mit Mittlepunkt im Koordinatenursprung und den Halbachsen a = 2, b = 1}$
+		Gesucht ist das Wegintegral um die Ellipse von $F$. Mittels dem Satz von Green folgt:
+		$$ \int\limits_\gamma F \cdot \d s = \int\limits_{\partial\Omega} F \d s = \iint\limits_\Omega (\pdiff{f^2}{x}- \pdiff{f^1}{y}) \d \mu = 
+		\iint\limits_\Omega (-3) \d \mu = -3\cdot \overbrace{(\pi \cdot 2 \cdot 1)}^{\text{Fläche der Ellipse}} = -6 \pi$$
+		\end{hint}

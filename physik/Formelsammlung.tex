@@ -1,0 +1,58 @@
+\documentclass[10pt,a4paper,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[pdftex]{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{esint}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Seite \thepage}
+\fancyhead[L]{Physik Formelsammlung}
+\fancyhead[C]{Nicolas Trüssel}
+
+\newcommand{\fracsize}{\rule[-2ex]{0pt}{5ex}}
+\newcolumntype{C}[1]{>{\fracsize\centering\arraybackslash}m{#1}<{}}
+
+% Custom commands
+\newcommand{\unitof}[1]{\left[ \mathrm{#1} \right]}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\diff}[2]{\frac{\mathrm d #1}{\mathrm d #2}}
+\newcommand{\multidiff}[3]{\frac{\mathrm d^#3 #1}{\mathrm d #2^#3}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\e}[1]{\vec{e}_{#1}}
+\renewcommand{\d}{\,\mathrm{d}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{Physik Formelsammlung}
+\author{Nicolas Trüssel}
+%\maketitle
+
+\include{./inc/Konstanten}
+\include{./inc/Einheiten}
+\include{./inc/Zehnerpotenzen}
+\include{./inc/Grundlagen}
+\include{./inc/Kinematik}
+\include{./inc/Dynamik}
+\include{./inc/Energie}
+\include{./inc/Wellen}
+\include{./inc/Relativsysteme}
+\include{./inc/Thermodynamik}
+\include{./inc/Elektromagnetismus}
+
+\end{document}

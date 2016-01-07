@@ -1,0 +1,71 @@
+% !TeX root = ../Main.tex
+\section{Folgen}
+		\begin{definition}[Konvergenz] \hfill
+			\begin{enumerate}
+				\item Die Folge $(a_n)_{n \in \mathbb{N}}$ \highlight{konvergiert} gegen $a$ für $n \to \infty$, falls gilt
+				$$ \forall \varepsilon > 0 \, \exists n_0 \in \mathbb{N} \, \forall n \geq n_0 \, : \, \abs{a_n - a} < \varepsilon , \qquad a = \lim\limits_{n \to \infty} a_n $$
+			\end{enumerate}
+		\end{definition}
+		\begin{proofhelp} \hfill
+			\begin{itemize}
+				\item Kein eindeutiger Grenzwert $\Rightarrow$ $(a_n)$ konvergiert nicht.
+				\item $(a_n)$ unbeschränkt $\Rightarrow$ $(a_n)$ konvergiert nicht.
+			\end{itemize}
+		\end{proofhelp}
+		\begin{theorem}[Rechenregeln]
+			Seien $(a_n)$ und $(b_n)$ konvergente Folgen mit den Grenzwerten $a, b$. Es gilt:
+			\begin{enumerate}
+				\item $\lim\limits_{n \to \infty} (a_n + b_n) = a + b$
+				\item $\lim\limits_{n \to \infty} (a_n - b_n) = a - b$
+				\item $\lim\limits_{n \to \infty} (a_n \cdot b_n) = a \cdot b$
+				\item Falls zusätzlich $b_n \neq 0 \neq b$, so gilt auch $\lim\limits_{n \to \infty} (a_n / b_n) = a / b$
+				\item Falls $ \forall n \, : \, a_n \leq b_n$, so auch $a \leq b$
+			\end{enumerate}
+		\end{theorem}
+	
+	\begin{multicols}{2}
+		\begin{theorem}[Monotone Konvergenz]
+			Sei $(a_n) \subset \mathbb{R}$ nach oben beschränkt und monoton wachsend. Dann ist $(a_n)$ konvergent und $ \lim\limits_{n \to \infty} a_n = \sup\limits_{n \in \mathbb{N}} a_n$
+		\end{theorem}
+		\begin{proofhelp}[Sandwich-Prinzip]
+			Um zu zeigen, dass eine Folge $(a_n)$ konvergiert, finde 2 Folgen $(b_n), (c_n)$ mit identischem Grenzwert $a$, so dass $\forall n \, : \, b_n \leq a_n \leq c_n$ gilt.
+		\end{proofhelp}
+		\\[1em]
+		\begin{definition}[Teilfolge]
+			Eine Teilfolge ist eine \highlight{unendliche} Teilmenge einer Folge.
+		\end{definition}
+		\begin{definition}[Häufungspunkt]
+			$a \in \mathbb{R}$ heisst Häufungspunkt, falls die Folge eine gegen $a$ konvergente Teilfolge besitzt.
+		\end{definition}
+		\begin{theorem}[Bolzano Weierstrass]
+			Jede beschränkte Folge besitzt eine konvergente Teilfolge, also auch einen Häufungspunkt. \\[1em]
+			Sei $(a_n)$ beschränkt, $a_- = \liminf\limits_{n \to \infty} a_n$, $a_+ = \limsup\limits_{n \to \infty} a_n$. Folgende Aussagen sind äquivalent:
+			\begin{enumerate}
+				\item $a_n$ konvergiert gegen $a$
+				\item Jede Teilfolge von $a_n$ konvergiert gegen $a$
+				\item $a_- = a_+$
+			\end{enumerate}
+		\end{theorem}
+		\begin{definition}[Cauchy-Folge]
+			$(a_n)$ heisst Cauchy-Folge, falls gilt:
+			$$ \forall \varepsilon > 0 \, \exists n_0 \, \forall n,l \geq n_0 \, : \, \abs{a_n - a_l} < \varepsilon $$
+		\end{definition}
+		\begin{theorem}[Cauchy-Kriterium]
+			Für $(a_n)$ sind folgende Aussagen äquivalent:
+			\begin{enumerate}
+				\item $(a_n)$ ist konvergent.
+				\item $(a_n)$ ist Cauchy-Folge.
+			\end{enumerate}
+		\end{theorem}
+		\\[1em]
+		\begin{shortcut}
+			$$ \lim\limits_{n \to \infty} \sqrt[n]{n} = 1$$
+			$$ \lim\limits_{n \to \infty} n^p q^n = 0, \quad n \in \mathbb{N}, q \in (0,1) $$
+			$$ \lim\limits_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n = \emath$$
+		\end{shortcut}
+		\\[1em]
+		\begin{definition}[Konvergenz in $\mathbb{R}^2$]
+			Eine Folge in $\mathbb{R}^n$ konvergiert, wenn $a_n$ komponentenweise konvergiert.
+		\end{definition}
+		
+	\end{multicols}

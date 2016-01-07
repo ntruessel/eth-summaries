@@ -1,0 +1,183 @@
+\documentclass[10pt,a4paper]{article}
+
+% -- math packages --
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+% -- utils --
+\usepackage{ifthen}
+
+% -- layout packages --
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage[margin = 1.2cm, includeheadfoot]{geometry}
+\addtolength{\textheight}{1cm}
+\addtolength{\footskip}{-1cm}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% -- language and encoding packages --
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% -- header definition --
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Seite \thepage}
+\fancyhead[L]{Analysis Zusammenfassung}
+\fancyhead[C]{Nicolas Trüssel}
+
+% -- titlepage setup --
+\author{Nicolas Trüssel}
+\title{Analysis Zusammenfassung}
+
+% -- multicols setup --
+\setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{4mm}
+
+% -- theorem environments --
+\tcbset{before=, after=, top=2mm, bottom = 2mm, left=2mm, right=2mm, title=, arc=0mm, colframe=gray, boxrule=0.5pt}
+
+\colorlet{mathyellow}{yellow!10}
+\colorlet{mathorange}{orange!10}
+\colorlet{mathred}{red!10}
+\colorlet{mathpurple}{blue!10}
+\colorlet{mathblue}{cyan!10}
+\colorlet{mathgreen}{green!10}
+
+\theoremstyle{plain}
+\newtheorem{math_definition}{Definition}[section]
+\newenvironment{definition}[1][]
+	{\begin{tcolorbox}[colback=mathyellow]\begin{math_definition}
+		\ifthenelse{ \equal{#1} {} }
+			{}
+			{\highlight{(#1)}}
+	}
+	{\end{math_definition}\end{tcolorbox}}
+	
+\newtheorem{math_proofhelp}{Beweishilfe}[section]
+\newenvironment{proofhelp}[1][]
+	{\begin{tcolorbox}[colback=mathgreen]\begin{math_proofhelp}
+		\ifthenelse{ \equal{#1} {} }
+			{}
+			{\highlight{(#1)}}
+	}
+	{\end{math_proofhelp}\end{tcolorbox}}
+
+\newtheorem{math_hint}{Trick}[section]
+\newenvironment{hint}[1][]
+	{\begin{tcolorbox}[colback=mathgreen]\begin{math_hint}
+		\ifthenelse{ \equal{#1} {} }
+			{}
+			{\highlight{(#1)}}
+	}
+	{\end{math_hint}\end{tcolorbox}}
+
+\newtheorem{math_shortcut}{Shortcut}[section]
+\newenvironment{shortcut}[1][]
+	{\begin{tcolorbox}[colback=mathgreen]\begin{math_shortcut}
+		\ifthenelse{ \equal{#1} {} }
+			{}
+			{\highlight{(#1)}}
+	}
+	{\end{math_shortcut}\end{tcolorbox}}
+
+\theoremstyle{definition}
+\newtheorem{math_theorem}{Theorem}[section]
+\newenvironment{theorem}[1][]
+	{\begin{tcolorbox}[colback=mathred]\begin{math_theorem}
+		\ifthenelse{ \equal{#1} {} }
+			{}
+			{\highlight{(#1)}}
+	}
+	{\end{math_theorem}\end{tcolorbox}}
+	
+\newtheorem{math_corollary}[math_theorem]{Korallar}
+\newenvironment{corollary}[1][]
+	{\begin{tcolorbox}[colback=mathorange]\begin{math_corollary}
+		\ifthenelse{ \equal{#1} {} }
+			{}
+			{\highlight{(#1)}}
+	}
+	{\end{math_corollary}\end{tcolorbox}}
+
+	
+% -- custom commands - text --
+\newcommand{\highlight}[1]{\textbf{\textup{#1}}}
+
+% -- custom commands - table --
+\newcommand{\fracsize}{\rule[-2ex]{0pt}{5ex}}
+\newcolumntype{C}[1]{>{\fracsize\centering\arraybackslash$}m{#1}<{$}}
+	
+% -- custom commands - math --
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\dotp}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\emath}{\boldsymbol{e}}
+\renewcommand{\imath}{\boldsymbol{i}}
+\newcommand{\Image}{\mathrm{Im}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\diff}[3][]
+	{\frac{
+		\ifthenelse{\equal{#1} {}} {\d #2} {\d^{#1} #2}
+	}{
+		\ifthenelse{\equal{#1} {}} {\d #3} {\d #3^{#1}}
+	}
+}
+\newcommand{\pdiff}[3][]
+	{\frac{
+		\ifthenelse{\equal{#1} {}} {\partial #2} {\partial^{#1} #2}
+	}{
+		\ifthenelse{\equal{#1} {}} {\partial #3} {\partial #3^{#1}}
+	}
+}
+\newcommand{\range}[2]{\Bigg\vert_{#1}^{#2}}
+\renewcommand{\div}{\mathrm{div}}
+
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arcoth}{arcoth}
+
+\DeclareMathOperator{\Rot}{Rot}
+
+
+\begin{document}
+\setlength{\parindent}{0em} 
+\let\clearpage\relax
+
+%\include{./Kapitel/Logik_und_Grundlagen}
+\input{./Kapitel/Zahlen_und_Vektoren.tex}
+\newpage
+\input{./Kapitel/Folgen.tex}
+\newpage
+\input{./Kapitel/Reihen.tex}
+\input{./Kapitel/Stetigkeit.tex}
+\input{./Kapitel/Differentialrechnung_1D.tex}
+\input{./Kapitel/Integralrechnung_1D.tex}
+\input{./Kapitel/Differentialgleichungen.tex}
+\input{./Kapitel/Differentialrechnung_Rn.tex}
+\input{./Kapitel/Integralrechnung_Rn.tex}
+\input{./Kapitel/Shortcuts_und_Trigonometrie.tex}
+%\input{./Kapitel/Shortcuts.tex}
+%\input{./Kapitel/Trigonometrie.tex}
+\section{Diverses}
+\begin{proofhelp}[Grenzwerte von Folgen]
+\begin{multicols}{3}
+$\lim\limits_{x \to \infty} a^x = 0 \quad \left(\abs{a} < 1 \right)$ \\
+$\lim\limits_{x \to \infty} \sqrt[x]{a} = 1$ \\
+$\lim\limits_{x \to \infty} \sqrt[x]{x} = 1$ \\
+$\lim\limits_{x \to \infty} \frac{a^x}{x!} = 0$ \\
+$\lim\limits_{x \to \infty} \left( 1 + \frac{a}{x}\right) ^x = \emath ^a$ \\
+$\lim\limits_{x \to \infty} \frac{\sin \left(a x\right)}{x} = a$ \\
+$\lim\limits_{x \to \infty} \frac{x^n}{\emath^x} = 0$ \\
+$\lim\limits_{x \to \infty} \frac{a^x - 1}{x} = \log a$ \\
+$\lim\limits_{x \to \infty} \frac{\log^n x}{x} = 0$ \\
+\end{multicols}
+\end{proofhelp}
+\end{document}

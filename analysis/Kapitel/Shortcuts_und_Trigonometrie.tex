@@ -1,0 +1,136 @@
+% !TeX root = ../Main.tex
+\section{Shortcuts, Abschätzungen, Tricks}
+	\begin{theorem}[Bernoulli]
+		Für $x \in \mathbb{R}, n \in \mathbb{N}$ gilt:
+		$$
+		(1 + x)^n \leq 1 + nx
+		$$
+	\end{theorem}
+	\begin{theorem}[Stirling]
+		$$ n! \approx \sqrt{2 \pi n} \cdot \emath ^{-n} \cdot n^n $$
+	\end{theorem}
+	\begin{proofhelp}[Partialbruchzerlegung]
+		\hfill 
+		\begin{enumerate}
+			\item Falls nötig mache Polynomdivision.
+			\item Bestimme die Nullstellen des Nenners.
+			\item Teile den Bruch in die Summen von einzelnen Brüchen mit unbekannten Zählern und den Nullstellen in den Nennern. Folgende Regeln sind zu beachten:
+			\begin{enumerate}
+				\item Eine Nullstelle mit Vielfachheit n erzeugt n Summanden, der Nenner des i-ten Bruches ist die i-te Potenz der einfachen Nullstelle.
+				\item Unabhängig von ihrer Vielfachheit hat eine Nullstelle mit Grad 1 eine Konstante im Zähler, eine Nullstelle mit Grad 2 einen Term der Form $ax + b$.
+			\end{enumerate}
+			\item Löse das Gleichungssystem (Summe der Partialbrüche = Ursprünglicher Bruch) durch Koeffizientenvergleich oder Einsetzen der Nullstellen für x.
+		\end{enumerate}
+	\end{proofhelp}
+	\begin{shortcut}[Werte von Quadraturzeln] \hfill \\
+		$\sqrt{2} \approx 1.41421 $, $\sqrt{3} \approx 1.73205 $, $\sqrt{5} \approx 2.23607 $, $ \sqrt{6} \approx 2.44949 $, $ \sqrt{7} \approx 2.64575 $, $\sqrt{10} \approx 3.16228 $
+	\end{shortcut}
+	
+	\begin{center}
+	\begin{tabular}{|C{4cm}|C{4cm}|}
+		\hline
+		\rowcolor[gray]{0.9}
+		\text{Funktion }f(x)				&	\text{Stammfunktion }F(x)			\tabularnewline\hline
+		\frac{1}{x}						&	\log(\abs{x})						\tabularnewline\hline
+		x^n, n \neq -1					&	\frac{1}{n + 1}x^{n+1}				\tabularnewline\hline
+		nx^{n-1}							&	x^n									\tabularnewline\hline
+		\sin x							&	-\cos x								\tabularnewline\hline
+		\cos x							&	\sin x								\tabularnewline\hline
+		\tan x							&	-\log\abs{\cos x}					\tabularnewline\hline
+		1 + \tan^2 x						&	\tan x								\tabularnewline\hline
+		\sin^2 x							&	\frac{1}{2}(x - \sin x \cdot \cos x)	\tabularnewline\hline
+		\cos^2 x							&	\frac{1}{2}(x + \sin x \cdot \cos x) \tabularnewline\hline
+		\frac{1}{\sqrt{1-x^2}}			&	\arcsin x							\tabularnewline\hline
+		\frac{-1}{\sqrt{1-x^2}}			&	\arccos x							\tabularnewline\hline
+		\frac{1}{1 + x^2}				&	\arctan x							\tabularnewline\hline
+		\sinh x							&	\cosh x								\tabularnewline\hline
+		\cosh x							&	\sinh x								\tabularnewline\hline
+		1 - \tanh^2 x					&	\tanh x								\tabularnewline\hline
+		\frac{1}{\sqrt{x^2+1}}			&	\arsinh x							\tabularnewline\hline
+		\frac{1}{\sqrt{x^2-1}}, x > 1	&	\arcosh x							\tabularnewline\hline
+		\frac{1}{1-x^2}, \abs{x} < 1		&	\artanh x							\tabularnewline\hline
+		\frac{1}{1-x^2}, \abs{x} > 1		&	\arcoth x							\tabularnewline\hline
+	\end{tabular}
+	\end{center}
+	\nopagebreak
+\section{Trigonometrie}
+	\begin{proofhelp}[Potenzreihenentwicklungen diverser Funktionen]
+		\begin{align*}
+			\emath ^x &= \sum\limits_{n = 0}^{\infty} \frac{x^n}{n!} & &= 1 + x + \frac{x^2}{x!} + \frac{x^3}{3!} + \cdots \\
+			\sin x &= \sum\limits_{n = 0}^{\infty} \left( -1 \right)^n \frac{x^{2n + 1}}{\left( 2n+ 1 \right) !} & &= x - \frac{x^3}{3!} +  \frac{x^5}{5!} \mp \cdots \\
+			\cos x &= \sum\limits_{n = 0}^{\infty} \left( -1 \right)^n \frac{x^{2n}}{\left( 2n \right) !} & &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} \mp \cdots \\
+			\sinh x &= \sum\limits_{n = 0}^{\infty} \frac{x^{2n + 1}}{\left( 2n+ 1 \right) !} & &= x + \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots \\
+			\cosh x &= \sum\limits_{n = 0}^{\infty} \frac{x^{2n}}{\left( 2n \right) !} & &= 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \cdots
+		\end{align*}
+	\end{proofhelp}
+	
+	\begin{definition}[Hyperbelfunktionen]
+		\begin{align*}
+			\sinh x &= \frac{1}{2} \left( \emath^x - \emath^{-x} \right) & &: \mathbb{R} \to \mathbb{R} \\
+			\cosh x &= \frac{1}{2} \left( \emath^x + \emath^{-x} \right) & &: \mathbb{R} \to [1,\infty) \\
+			\tanh x &= \frac{\sinh x}{\cosh x} = \frac{\emath^x - \emath^{-x}}{\emath^x + \emath^{-x}} & &: \mathbb{R} \to (-1,1)
+		\end{align*}
+	\end{definition}
+	
+	\begin{multicols}{2}
+	\subsection{Werte}
+		\begin{center}
+			\begin{tabular}{| C{1cm} | C{1cm} || C{1cm} | C{1cm} | C{1cm} | C{1cm} |}
+				\hline
+				\rowcolor[gray]{0.9}
+				\alpha 				& 	\alpha		&	\sin\alpha			&	\cos\alpha			&	\tan\alpha			\tabularnewline\hline
+				0					&	0			&	0					&	1					&	0					\tabularnewline\hline
+				\frac{\pi}{6}		&	30^\circ		&	\frac{1}{2}			&	\frac{\sqrt{3}}{2}	&	\frac{\sqrt{3}}{3}	\tabularnewline\hline
+				\frac{\pi}{4}		&	45^\circ		&	\frac{\sqrt{2}}{2}	&	\frac{\sqrt{2}}{2}	&	1					\tabularnewline\hline
+				\frac{\pi}{3}		&	60^\circ		&	\frac{\sqrt{3}}{2}	&	\frac{1}{2}			&	\sqrt{3}				\tabularnewline\hline
+				\frac{\pi}{2}		&	90^\circ		&	1					&	0					&	\pm\infty			\tabularnewline\hline
+			\end{tabular}
+		\end{center}
+	\subsection{Umformungen}
+		\begin{proofhelp}[Symmetrien]
+			\begin{align*}
+				\sin \left( -x \right) &= -\sin \left( x \right) \\
+				\cos \left( -x \right) &= \cos \left( x \right) \\
+				\tan \left( -x \right) &= -\tan \left( x \right) \\[1em]
+				\sin \left( x \right) &= \sin \left( \pi - x \right) \\
+				\cos \left( x \right) &= -\cos \left( \pi - x \right) \\
+				\tan \left( x \right) &= -\tan \left( \pi - x \right)
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Summen]
+			\begin{align*}
+				\sin x + \sin y &= 2 \sin \frac{x + y}{2} \cos \frac{x - y}{2} \\
+				\cos x + \cos y &= 2 \cos \frac{x + y}{2} \cos \frac{x - y}{2} \\
+				\cos x - \cos y &= 2 \sin \frac{x + y}{2} \sin \frac{x - y}{2} 
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Produkte]
+			\begin{align*}
+				\sin x \cdot \sin y &= \frac{1}{2}\left( \cos \left( x - y \right) - \cos \left( x + y \right) \right) \\
+				\cos x \cdot \cos y &= \frac{1}{2}\left( \cos \left( x - y \right) + \cos \left( x + y \right) \right) \\
+				\sin x \cdot \cos y &= \frac{1}{2}\left( \sin \left( x - y \right) + \sin \left( x + y \right) \right) 
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Additionstheoreme]
+			\begin{align*}
+				\sin \left( x \pm y \right) &= \sin x \cdot \cos y \pm \cos x \cdot \sin y \\
+				\cos \left( x \pm y \right) &= \cos x \cdot \cos y \mp \sin x \cdot \sin y \\
+				\sin \left( 2x \right) &= 2 \sin x \cos x \\
+				\cos \left( 2x \right) &= \cos^2 x - \sin^2 x 
+			\end{align*}
+			\begin{align*}
+				\sin \left( x + y \right) \cdot \sin \left( x - y \right) &= \cos^2 y - \cos^2 x \\
+							&= \sin^2 x - \sin^2 y \\
+				\cos \left( x + y \right) \cdot \cos \left( x - y \right) &= \cos^2 y - \sin^2 x
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Potenzen]
+			\begin{align*}
+				\sin^2 x &= \frac{1}{2} \left( 1 - \cos \left( 2x \right) \right) \\
+				\sin^3 x &= \frac{1}{4} \left( 3 \sin x - \sin \left( 3x \right) \right) \\
+				\cos^2 x &= \frac{1}{2} \left( 1 + \cos \left( 2x \right)\right) \\
+				\cos^3 x &= \frac{1}{4} \left( 3 \cos x + \cos \left( 3x \right)\right) \\
+				\tan^2 x &= \frac{1 - \cos \left( 2x \right)}{1 + \cos \left( 2x \right)}
+			\end{align*}
+		\end{proofhelp}
+	\end{multicols}

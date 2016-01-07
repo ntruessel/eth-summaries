@@ -1,0 +1,89 @@
+% !TeX root = ../Main.tex
+\section{Differentialgleichungen}
+	\begin{definition}
+		Eine \highlight{Differentialgleichung} ist eine Gleichung für eine Funktion von einer oder mehreren Variablen, in der auch Ableitungen dieser Funktion vorkommen.
+	\end{definition}
+		\begin{definition}[Lineare Differentialgleichung]
+			Eine lineare DGL n-ter Ordnung hat die Gestalt $y^{(n)}(x) + a_{n-1}(x)y^{(n-1)}(x) + \dots + a_0(x) y(x) = b(x)$, mit $a_i(x), b(x)$ Funktionen. 
+		\end{definition}
+		\subsection{Homogene lineare DGL mit konstanten Koeffizienten}
+			\begin{definition}[Charakteristisches Polynom]
+				Das charakteristische Polynom der Gleichung $y^{(n)}(x) + a_{n-1}y^{(n-1)}(x) + \dots + a_0y(x) = 0$ (homogene lineare DGL) ist gegeben durch
+				$$ p(t) = t^n + a_{n-1} t^{n-1} + \dots + a_0 $$
+			\end{definition}
+			\begin{proofhelp}
+				Um homogene lineare DGL mit konstanten Koeffizienten zu lösen, suche die Nullstellen des charakteristischen Polynoms und schaue unten welche Nullstellen zu welchen Lösungen führen. 
+				Die allgemeine Lösung ist die Linearkombination all dieser Lösungen. ($y_{allg}(x) = c_1 \cdot \emath^{\lambda_1 x} \cdots $)
+				\begin{enumerate}
+					\item Ist $\lambda \in \mathbb{R}$ eine k-fache Nullstelle, so sind $\emath^{\lambda x}, x^1 \cdot \emath^{\lambda x}, \dots, x^{k-1}\emath^{\lambda x}$ Lösungen der DGL.
+					\item Sind $\lambda = \alpha + \imath \beta$ und $\overline{\lambda} = \alpha - \imath \beta $ mit $\beta \neq 0$ ein Paar konjugiert komplexer Nullstellen mit Vielfachheit k, so sind 
+					$$ \emath^{\alpha x} \sin (\beta x), \quad \emath^{\alpha x} \cos (\beta x), $$
+					$$ x^1 \cdot \emath^{\alpha x} \sin (\beta x), \quad x^1 \cdot \emath^{\alpha x} \cos (\beta x), $$
+					$$ \vdots $$
+					$$ x^{k-1} \cdot \emath^{\alpha x} \sin (\beta x), \quad x^{k-1} \cdot \emath^{\alpha x} \cos (\beta x) $$
+					Lösungen der DGL. Beachte, dass die Koeffizienten von $x^{i} \cdot \emath^{\alpha x} \sin (\beta x)$ und $x^{i} \cdot \emath^{\alpha x} \cos (\beta x)$ verschieden sein dürfen.
+				\end{enumerate}
+			\end{proofhelp}
+		\subsection{Inhomogene lineare DGL mit konstanten Koeffizienten}
+			\begin{proofhelp}
+				Um inhomogene lineare DGL mit konstanten Koeffizienten zu lösen, gehe so vor:
+				\begin{enumerate}
+					\item Löse die zugehörige homogene DGL und erhalte $y_{h}$.
+					\item Mache einen Ansatz vom Typ der rechten Seite und erhalte $y_{s}$.
+					\item Kombiniere die Lösung $y_{allg} = y_{h} + y_{s}$.
+				\end{enumerate}
+			\end{proofhelp}
+			\begin{hint}[Ansatz der rechten Seite]
+				Finde in der Tabelle den Ansatz. Dieser wird nun in die DGL eingesetzt und so die noch unbekannten Koeffizienten bestimmt.			
+			\end{hint}
+			\begin{center}
+				\begin{tabular}{|C{5cm}|C{8cm}|}
+					\hline
+					\rowcolor[gray]{0.9}
+					\text{Störfunktion}																												&	\text{Ansatz für }y_p														\tabularnewline\hline
+					a \cdot \emath^{\mu x}																											&	b \cdot \emath^{\mu x}														\tabularnewline\hline
+					a \cdot \sin	 (\nu x)		\linebreak		\fracsize b \cdot \cos ( \nu x)															&	c \cdot \sin (\nu x) + d \cdot \cos (\nu x)									\tabularnewline\hline
+					a \cdot \emath^{\mu x} \cdot \sin	 (\nu x)		\linebreak		\fracsize b \cdot \emath^{\mu x} \cdot \cos ( \nu x)				&	\emath^{\mu x} \cdot (c \cdot \sin (\nu x) + d \cdot \cos (\nu x))			\tabularnewline\hline
+					P_n(x)																															&	R_n(x)																		\tabularnewline\hline
+					P_n(x) \emath^{\mu x} 																											&	R_n(x) \emath^{\mu x}														\tabularnewline\hline
+					P_n(x) \cdot \emath^{\mu x} \cdot \sin	 (\nu x)		\linebreak		\fracsize Q_n(x) \cdot \emath^{\mu x} \cdot \cos ( \nu x)		&	\emath^{\mu x} \cdot (R_n(x) \cdot \sin (\nu x) + S_n(x) \cdot \cos (\nu x))	\tabularnewline\hline
+				\end{tabular}
+			\end{center}
+			wobei $P_n(x), R_n(x), Q_n(x)$ und $S_n(x)$ Polynome von Grad $n$ sind.\\[1em]
+			\begin{hint}
+				Liegt eine Linearkombination der Störfaktoren vor, so hat man auch als Ansatz eine entsprechende Linearkombination zu wählen.
+			\end{hint}
+			\begin{hint}
+				Falls $\lambda = \mu + \imath \nu$ eine m-fache Nullstelle des charakteristischen Polynomes ist, so muss man den Ansatz mit $x^m$ multiplizieren.
+			\end{hint}
+		\subsection{Lineare DGL erster Ordnung mit allgemeinen Koeffizienten}
+			Die lineare DGL hat die allgemeine Form
+			$$ y^\prime(x) = a(x)\cdot y + b(x) $$
+			\begin{proofhelp}[Homogener Fall]
+				Falls $y(x) \neq 0$ gilt $y(x) = \emath^{A(x)}\cdot K, \quad K \in \mathbb{R} - \{0\}$.\\ $A(x)$ ist eine Stammfunktion von $a(x)$.
+			\end{proofhelp}
+			\begin{proofhelp}[Allgemeiner Fall]
+				Die allgemeine Lösung der DGL $ y^\prime(x) = a(x)\cdot y + b(x) $ lautet:
+				$$ y_{all}(x) = \emath^{A(x)}\cdot \int \left( b(x) \emath^{-A(x)} \right) \d x + K \cdot \emath^{A(x)} $$
+				wobei $K \in \mathbb{R}$ und $A(x)$ eine Stammfunktion von $a(x)$ ist.
+			\end{proofhelp}
+			\begin{hint}[Variation der Konstanten]
+				Dies ist eine Alternative zum Lösungsschema im allgemeinen Fall. \\
+				\begin{enumerate}
+					\item Ignoriere $b(x)$ und löse den homogenen Fall. Erhalte $y_h(x)$
+					\item Bestimme $y_p(x)$ so: $y_p(x) = y_h(x) \cdot \int \frac{b(x)}{y_h(x)} \d x \quad$ (setze $y_h$ mit $K = C(t)$ in die DGL ein).
+					\item $y_{allg}(x) = y_h(x) + y_p(x)$
+				\end{enumerate}
+			\end{hint}
+		\subsection{Separierbare DGL}
+			\begin{hint}[Sparation der Variablen]
+				Eine DGL der Form $y^\prime(x) = f(x)g(y)$ löst man durch Separation der Variablen, d.h. ersetze $y^\prime(x)$ durch $\diff{y}{x}$, integriere beide Seiten und löse nach $y$ auf. Möglicherweise ist hier auch eine Substitution sehr hilfreich.
+			\end{hint}
+		\subsection{Bernoulli DGL}
+			\begin{proofhelp}[Sparation der Variablen]
+				Eine DGL der Form $y^\prime(x) = f(x)y + g(x)y^{\alpha}$ löst man durch Substitution. Wähle 
+				$$u = y^{1 - \alpha} \Leftrightarrow y = u^{\frac{1}{1-\alpha}}$$
+				so erhält man
+				$$ u^\prime = \underbrace{(1 - \alpha)f(x)}_{f^*(x)}u + \underbrace{(1 - \alpha) g(x)}_{g^*(x)} $$
+				Dies löst man mit dem Ansatz für lineare DGL erster Ordnung mit allgemeinen Koeffizienten.
+			\end{proofhelp}

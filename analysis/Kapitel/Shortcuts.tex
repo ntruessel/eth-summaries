@@ -1,0 +1,54 @@
+% !TeX root = ../Main.tex
+\section{Shortcuts, Abschätzungen, Tricks}
+	\begin{theorem}[Bernoulli]
+		Für $x \in \mathbb{R}, n \in \mathbb{N}$ gilt:
+		$$
+		(1 + x)^n \leq 1 + nx
+		$$
+	\end{theorem}
+	\begin{theorem}[Stirling]
+		$$ n! \approx \sqrt{2 \pi n} \cdot \emath ^{-n} \cdot n^n $$
+	\end{theorem}
+	\begin{proofhelp}[Partialbruchzerlegung]
+		\hfill 
+		\begin{enumerate}
+			\item Falls nötig mache Polynomdivision.
+			\item Bestimme die Nullstellen des Nenners.
+			\item Teile den Bruch in die Summen von einzelnen Brüchen mit unbekannten Zählern und den Nullstellen in den Nennern. Folgende Regeln sind zu beachten:
+			\begin{enumerate}
+				\item Eine Nullstelle mit Vielfachheit n erzeugt n Summanden, der Nenner des i-ten Bruches ist die i-te Potenz der einfachen Nullstelle.
+				\item Unabhängig von ihrer Vielfachheit hat eine Nullstelle mit Grad 1 eine Konstante im Zähler, eine Nullstelle mit Grad 2 einen Term der Form $ax + b$.
+			\end{enumerate}
+			\item Löse das Gleichungssystem (Summe der Partialbrüche = Ursprünglicher Bruch) durch Koeffizientenvergleich oder Einsetzen der Nullstellen für x.
+		\end{enumerate}
+	\end{proofhelp}
+	\begin{shortcut}[Werte von Quadraturzeln] \hfill \\
+		$\sqrt{2} \approx 1.41421 $, $\sqrt{3} \approx 1.73205 $, $\sqrt{5} \approx 2.23607 $, $ \sqrt{6} \approx 2.44949 $, $ \sqrt{7} \approx 2.64575 $, $\sqrt{10} \approx 3.16228 $
+	\end{shortcut}
+	
+	\begin{center}
+	\begin{tabular}{|C{4cm}|C{4cm}|}
+		\hline
+		\rowcolor[gray]{0.9}
+		\text{Funktion }f(x)				&	\text{Stammfunktion }F(x)			\tabularnewline\hline
+		\frac{1}{x}						&	\log(\abs{x})						\tabularnewline\hline
+		x^n, n \neq -1					&	\frac{1}{n + 1}x^{n+1}				\tabularnewline\hline
+		nx^{n-1}							&	x^n									\tabularnewline\hline
+		\sin x							&	-\cos x								\tabularnewline\hline
+		\cos x							&	\sin x								\tabularnewline\hline
+		\tan x							&	-\log\abs{\cos x}					\tabularnewline\hline
+		1 + \tan^2 x						&	\tan x								\tabularnewline\hline
+		\sin^2 x							&	\frac{1}{2}(x - \sin x \cdot \cos x)	\tabularnewline\hline
+		\cos^2 x							&	\frac{1}{2}(x + \sin x \cdot \cos x) \tabularnewline\hline
+		\frac{1}{\sqrt{1-x^2}}			&	\arcsin x							\tabularnewline\hline
+		\frac{-1}{\sqrt{1-x^2}}			&	\arccos x							\tabularnewline\hline
+		\frac{1}{1 + x^2}				&	\arctan x							\tabularnewline\hline
+		\sinh x							&	\cosh x								\tabularnewline\hline
+		\cosh x							&	\sinh x								\tabularnewline\hline
+		1 - \tanh^2 x					&	\tanh x								\tabularnewline\hline
+		\frac{1}{\sqrt{x^2+1}}			&	\arsinh x							\tabularnewline\hline
+		\frac{1}{\sqrt{x^2-1}}, x > 1	&	\arcosh x							\tabularnewline\hline
+		\frac{1}{1-x^2}, \abs{x} < 1		&	\artanh x							\tabularnewline\hline
+		\frac{1}{1-x^2}, \abs{x} > 1		&	\arcoth x							\tabularnewline\hline
+	\end{tabular}
+	\end{center}

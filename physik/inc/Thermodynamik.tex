@@ -1,0 +1,160 @@
+% !TeX root = ../Formelsammlung.tex
+\section{Thermodynamik}
+\subsection{Druck}
+\begin{equation}
+p = \frac{F}{A} 
+\end{equation}
+\begin{equation}
+\left[ p \right] = \mathrm{Pa}, \quad 1 \, \mathrm{Pa} = 1 \, \mathrm{N} / \mathrm{m^2}, \quad 1 \, \mathrm{bar} = 10^5 \, \mathrm{Pa}, \quad 1 \, \mathrm{atm} = 1,01325 \cdot 10^5 \, \mathrm{Pa}
+\end{equation}
+\subsection{Gesetz von Gay-Lussac}
+\begin{equation}
+V = C_1 \cdot T, \quad \text{bei konstantem Druck}, \quad \left( V \propto T \right)
+\end{equation}
+\subsection{Gesetz von Boyle und Mariotte}
+\begin{equation}
+p = C_2 \cdot T, \quad \text{bei konstantem Volumen}, \quad \left( p \propto T \right)
+\end{equation}
+\subsection{Zustandsgleichung des idealen Gases}
+\begin{equation}
+p \cdot V = n \cdot R \cdot T = N \cdot k \cdot T
+\end{equation}
+$p$ = Druck, $V$ = Volumen $n$ = Anzahl Mole, $N$ = Anzahl Moleküle, $T$ = absolute Temperatur
+\begin{align}
+k &= 1,381 \cdot 10^{-23} \mathrm{J / K} \qquad \text{(Boltzmann-Konstante)} \\ 
+R &= N_Ak = 8,314 \frac{\mathrm{J}}{\mathrm{mol \cdot K}}
+\end{align}
+\subsection{Die Standardbedingungen}
+\begin{align}
+T &= 0^\circ C = 273,15 \text{ K} \\
+p &= 1 \text{ atm}
+\end{align}
+\subsection{Wärmekapazität}
+Die Wärmekapazität eines \textbf{Körpers} (als ganzes) ist definiert als
+\begin{equation}
+C = \frac{\Delta Q}{\Delta T}
+\end{equation}
+Die \textbf{speifische} Wärmekapazität ist 
+\begin{equation}
+c = \frac{\Delta Q}{m \Delta T}
+\end{equation}
+Die \textbf{molare} Wärmekapazität ist 
+\begin{equation}
+c = \frac{\Delta Q}{n \Delta T}
+\end{equation}
+Für die Erwärmung eines Körpers von $T_a$ auf $T_e$ wird die Wärmemenge (Energie) $Q$ benötigt:
+\begin{equation}
+Q = \int \d Q = \int \limits_{T_a}^{T_b} C \left( T \right) \d T
+\end{equation}
+Für kleine $\Delta T$ gilt
+\begin{equation}
+Q = C \cdot \Delta T
+\end{equation}
+\subsubsection{Wärmekapazität des idealen (einatomigen) Gases}
+\begin{equation}
+C = \frac{3}{2}Nk
+\end{equation}
+Für die molare Wärmekapazität gilt
+\begin{equation}
+c = \frac{3}{2}N_Ak = \frac{3}{2} R \approx 12,5 \frac{\mathrm{J}}{\mathrm{mol \cdot K}}
+\end{equation}
+\subsubsection{Wärmekapazität eines Festkörpers, Dulong-Petit}
+Die spezifischen Wärmekapazitäten von Festkörpern variieren stark, die molaren Wärmekapazitäten sind bis auf einige Ausnahmen sehr ähnlich:
+\begin{equation}
+c \approx 25 \frac{\mathrm{J}}{\mathrm{mol \cdot K}}
+\end{equation}
+\subsection{Latente Wärme}
+\begin{equation}
+Q = m \cdot L, \quad \text{wobei L die spezifische latente Wärme und m die Masse ist}
+\end{equation}
+\subsection{Wärmestrahlung}
+\subsubsection{Stefan-Bolzmannsches Gesetz}
+Die (über alle Wellenlängen aufsummierte, auf der Fläche normierte und nach vorne abgestrahlte) Wärmestrahlung realer Körper ist
+\begin{equation}
+S \left( T \right) = \varepsilon \sigma T^4
+\end{equation}
+Dabei ist $\varepsilon \leq 1$ eine Zahl, die den Emissionsgrad des Körpers bezeichnet (oft temperaturabhängig, $\varepsilon = 1$ für schwarze Stahler) und $\sigma$ ist die Stefan-Bolzmann-Konstante:
+\begin{equation}
+\sigma = 5,670 \cdot 10^{-8} \frac{\mathrm{W}}{\mathrm{m^2 \cdot K^4}}
+\end{equation}
+Für einen Körper mit Temperatur $T$ bei einer Umgebungstemperatur $T_0$ gilt:
+\begin{equation}
+S_\mathrm{netto} = S_\mathrm{emmitiert} - S_\mathrm{absorbiert} = \varepsilon \sigma T^4 - \varepsilon \sigma {T_0}^4
+\end{equation}
+\subsubsection{Wiensches Verschiebungsgesetz}
+\begin{equation}
+\lambda_\mathrm{max} = \frac{2898 \mathrm{\mu m} \cdot K}{T}
+\end{equation}
+Wobei $\lambda_\mathrm{max}$ das Maximum der Spektralverteilungsfunktion $S \left( \lambda, T \right)$ ist (siehe unten).
+\subsubsection{Spektralverteilungsfunkton}
+Gesetz von Rayleigh-Jeans (Historisch und falsch!!):
+\begin{equation}
+S \left( \lambda, T \right) = \frac{2 \pi c}{\lambda^4}kT
+\end{equation}
+$k$ ist die Boltzmann-Konstante, $c$ die Lichtgeschwindigkeit \\[1em]
+Gesetz von Plank:
+\begin{equation}
+S \left( \lambda, T \right) = \frac{2 \pi c^2 h}{\lambda^5} \frac{1}{e^{hc/\left(\lambda k T \right)} - 1}
+\end{equation}
+$k$ bezeichnet wiederum die Boltzmann-Konstante, $h$ ist die Planksche Konstante
+\begin{equation}
+h \approx 6,626 \cdot 10^{-34} \,\mathrm{J \cdot s}
+\end{equation}
+\subsection{Innere Energie}
+Die innere Energie $U$ eines Körpers kann sowohl durch Wärmezufuhr als auch durch Leistung mechanischer Arbeit verändert werden. Es gilt:
+\begin{equation}
+\d U = \d Q + \d W
+\end{equation}
+\subsection{Mechanische Arbeit eines expandierenden Gases}
+Ausgangszustand: Ein Gas mit Druck $p$ befindet sich in einem Behälter, der durch einen reibungsfreien Kolben verschlossen wird. Die vom Gas geleistete Arbeit bei einer Expansion (unabhängig von der Art der Expansion) um $\d V = A \d x$ ist:
+\begin{equation}
+\d W = -F \d x = - p A  \d x = - p \d V
+\end{equation}
+\subsection{Thermische Prozesse des idealen Gases}
+Allgemein gilt:
+\begin{equation}
+W = \int\limits_{V_a}^{V_e} \d W = - \int\limits_{V_a}^{V_e}p \d V
+\end{equation}
+\subsubsection{Isobare Zustandsänderung}
+\begin{equation}
+W = - p \int\limits_{V_a}^{V_e} \d V = -p \left( V_e - V_e \right)
+\end{equation}
+\subsubsection{Isotherme Zustandsänderung}
+Hier gilt: $$pV = konst.$$
+Um die Temperatur des Gases bei der Expansion konstant zu halten, muss Energie zugeführt werden. Da $T$ konstant und die innere Energie $U$ eines idealen Gases nur von $T$ abhängt gilt:
+\begin{equation}
+\d U = \d Q + \d W = 0 \quad\Rightarrow\quad \d Q = - \d W
+\end{equation}
+Daraus folgt:
+\begin{equation}
+Q = - W = - \int\d W = \int\limits_{V_1}^{V_2}p \d V \,\overset{pV=nRT}{=}\, nRT \int\limits_{V_1}^{V_2}\frac{1}{V} \d V = nRT \ln\left(\frac{V_2}{V_1} \right)
+\end{equation}
+\subsubsection{Adiabatische Expansion}
+Bei der adiabatischen Expansion wird keine Wärme ausgetauscht ($\d Q = 0$)
+\begin{equation}
+\d U - \d W = 0 \quad\Rightarrow\quad C \d T = - \frac{nRT}{V}\d V \quad\Rightarrow\quad \frac{\d T}{T} = - \frac{nR}{C}\frac{\d V}{V}
+\end{equation}
+\begin{equation}
+\gamma \equiv 1 + \frac{nR}{C} \quad\Leftrightarrow\quad \gamma - 1 = \frac{nR}{C}
+\end{equation}
+\begin{equation}
+\int \frac{1}{T}\d T = - \left(\gamma - 1\right) \int\frac{1}{V} \d V \quad\Rightarrow\quad \ln T + \left( \gamma - 1 \right) \ln V = konst.
+\end{equation}
+Daraus folgt:
+\begin{equation}
+TV^{\gamma - 1} = konst. \quad\wedge\quad \frac{pV}{nRT}V^{\gamma - 1} = konst. \Rightarrow pV^\gamma = konst.
+\end{equation}
+Arbeit:
+\begin{equation}
+\Delta W = \Delta U = c \cdot \Delta T, \quad \gamma = 1 + \frac{nR}{c} \quad \text{umformen und fertig.}
+\end{equation}
+\subsection{Wirkungsgrad}
+Sei $Q_W$ die in warmen Reservoir aufgenommene Wärme, $Q_K$ die im kalten Reservoir abgegebene Wärme und $W = Q_W - Q_K$ die verrichtete Arbeit. Dann gilt für den Wirkungsgrad einer Wärmekraftmaschine:
+\begin{equation}
+\varepsilon = \frac{\abs{W}}{\abs{Q_W}} = 1 - \frac{\abs{Q_K}}{\abs{Q_W}}
+\end{equation}
+Im Falle einer carnotschen Wärmekraftmaschine (besser gehts nicht) gilt:
+\begin{equation}
+\varepsilon = 1 - \frac{T_3}{T_1}
+\end{equation}
+wobei $T_1$ die Temeperatur des warmen Reservoirs und $T_2$ die Temperatur des kalten Reservoirs ist.

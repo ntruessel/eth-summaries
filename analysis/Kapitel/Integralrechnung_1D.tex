@@ -1,0 +1,94 @@
+% !TeX root = ../Main.tex
+\section{Integralrechung auf $\mathbb{R}$}
+	\subsection{Riemannintegral}
+		\begin{definition}[Partition]
+			\hfill
+			\begin{enumerate}
+				\item Eine \highlight{Partition} eines Intervalles $[a,b]$ ist eine endliche Menge von Punkten
+				$$ P = \{ a = x_0, x_1, x_2, \dots, x_n = b \}, \quad x_0 < x_1 < x_2 < \dots < x_n$$
+				\item $\mathscr{P}(I)$ bezeichnet die Menge aller Partitionen eines Intervalls $I$. 
+				\item Die Feinheit ist definiert als $\delta(P) := \max\limits_{1\leq i \leq n} (x_i - x_{i - 1}) = $ Länge des grösste Teilintervalls $I_i:= [x_{i-1}, x_i]$.
+			\end{enumerate}
+		\end{definition}
+		\begin{definition}[Riemannsumme]
+			\hfill\\
+			$\xi$ ist eine Wahl von Zwischenpunkten einer Partition, $x_{i-1} \leq \xi_i \leq x_i, 1 \leq i \leq n$ \\
+			Sei $f:[a,b] \to \mathbb{R}$ eine beschränkte Funktion \\
+			Jede Summe der Form $S(f,P,\xi) := \sum\limits_{i = 1}^{n} f(\xi_i)(x_{i}-x_{i-1})$ nennt man \highlight{Riemansumme}. \\
+			Die Summe $U(f,P) := \sum\limits_{i = 1}^{n} (\inf\limits_{I_i}f)(x_{i}-x_{i-1})$ heisst Untersumme. \\
+			Die Summe $O(f,P) := \sum\limits_{i = 1}^{n} (\sup\limits_{I_i}f)(x_{i}-x_{i-1})$ heisst Obersumme. \\
+		\end{definition}
+		\begin{proofhelp}
+			$P,Q \in \mathscr{P}(I), P \subset Q \quad\Rightarrow\quad U(f,P) \leq U(f,Q) \leq O(f,Q) \leq O(f,P)$
+		\end{proofhelp}
+		\begin{definition}[Riemann-integrierbar]
+			Für eine beschränkte Funktion $f:I \to \mathbb{R}$ bezeichnen:
+			$$\underline{\int\limits_{a}^{b}}f(x)\d x := \sup\limits_{P \in \mathscr{P}(I)} U(f,P) \qquad \overline{\int\limits_{a}^{b}}f(x)\d x := \inf\limits_{P \in \mathscr{P}(I)} O(f,P)$$
+			$f$ heisst \highlight{Riemann-integrierbar}, falls 
+			$$ \underline{\int\limits_{a}^{b}}f(x)\d x = \overline{\int\limits_{a}^{b}}f(x)\d x$$ 
+		\end{definition}
+		\begin{theorem}
+			Sei $f:I \to \mathbb{R}$ beschränkt. Folgende Aussagen sind äquivalent:
+			\begin{enumerate}
+				\item $f(x)$ ist integrierbar über $I$
+				\item $\forall \varepsilon > 0 \, \exists P \in \mathscr{P}(I) \, : \, O(f,P) - U(f,P) < \varepsilon$
+			\end{enumerate}
+		\end{theorem}
+		\begin{theorem}
+			\hfill
+			\begin{enumerate}
+				\item Jede stetige Funktion ist Riemann-integrierbar
+				\item Jede monotone Funktion ist Riemann-integerierbar
+			\end{enumerate}
+		\end{theorem}
+		\\[1em]
+		\begin{theorem}[Mittelwertsatz der Integralrechnung]\hfill\\
+			Sei $f:[a,b] \to \mathbb{R}$ eine stetige Funktion. Dann existiert ein $\xi \in [a,b]$ mit 
+			$$ \int\limits_{a,b} f(x) \d x = (b-a) f(\xi)$$
+		\end{theorem}
+	\subsection{Hauptsatz der Infinitesimalrechnung}
+		\begin{theorem}[Hauptsatz A]
+			Sei $f:[a,b] \to \mathbb{R}$ stetig. \\
+			Wir definieren: $\forall x \in [a,b] \, : \, F(x) := \int\limits_{a}^x f(t) \d t$ \\
+			Dann ist $F(x): I \to \mathbb{R}$ differenzierbar mit $\forall x \in [a,b] \, : \, F^\prime(x) = f(x)$
+		\end{theorem}
+		\begin{theorem}[Hauptsatz der Differential- und Integralrechnung]
+			Sei $f: I \to \mathbb{R}$ stetig und $F$ eine beliebige Stammfunktion von $f$. Dann gilt:
+			$$ \int\limits_{a}^b f(x) \d x = F(b) - F(a) =: F(x)\range{a}{b}$$
+		\end{theorem}
+	\subsection{Integrationsmethoden}
+		\begin{proofhelp}[Generelle Regeln]
+			%\hfill
+			\begin{align*}
+				\int f(a + x) \d x &= F(a+x) + c \\
+				\int g^\prime(x)g(x) \d x &= \frac{1}{2}g(x)^2 + c \\
+				\int \frac{g^\prime(x)}{g(x)} \d x &= \log \abs{g(x)} + c
+			\end{align*}
+		\end{proofhelp}
+		\begin{proofhelp}[Partielle Integration]
+			Seien $f,g:[a,b] \to \mathbb{R}$ stetig. Es gilt:
+			$$ \int\limits_{a}^{b} f(x)g^\prime(x) \d x = f(x)g(x) \range{a}{b} - \int\limits_a^b f^\prime(x)g(x) \d x $$
+		\end{proofhelp}
+		\begin{proofhelp}[Substitution]
+			Sei $f:[a,b] \to \mathbb{R}$ stetig, $g[c,d] \to [a,b] \in C^1$ Dann gilt:
+			$$ \int\limits_{a}^{b} f(g(t)) \cdot g^\prime(t) \d t = \int\limits_{g(a)}^{g(b)}f(x) \d x $$
+		\end{proofhelp}
+		%\begin{proofhelp}[Partialbruchzerlegung]
+		%	Mache mit gebrochenrationaler Funktion ein PBZ und integriere die Summen einzeln. Es gilt dabei:
+		%	\begin{align*}
+		%		\int \frac{\d x}{(x- x_0)^n} &= \begin{cases} \log\abs{x-x_0} + c & n = 1 \\ \frac{1}{1 - n} \cdot \frac{1}{(x- x_0)^{n - 1}} & n \geq 2 \end{cases} \\
+		%		\int \frac{bx + d}{((x-a)^2+b^2)^m} \d x
+		%	\end{align*}
+		%\end{proofhelp}
+	\subsection{Uneigentliches Integral}
+		\begin{definition}
+			Sei $f$ eine Funktion auf einem Intervall $(a,b)$, deren Einschränkung auf jedes kompakte Teilintervall $[a',b']$ integrierbar ist. Dann ist das uneigentliche Integral von f von a bis b definiert als:
+			$$\int\limits_{a}^{b} f(x) \d x := \lim\limits_{a' \downarrow a} \lim\limits_{b' \uparrow b} \int\limits_{a'}^{b'}f(x) \d x$$
+			falls diese Grenzwerte existieren.
+		\end{definition}
+		\begin{proofhelp}
+			\highlight{Achtung}, die beiden Grenzen müssen, getrennt untersucht werden!! $\int\limits_{-\infty}^{\infty} x \d x$ existiert nicht.
+		\end{proofhelp}
+		\begin{hint}
+			Hier können Majorantenkriterium und Minorantenkriterium helfen zu entscheiden, ob das Integral existiert.
+		\end{hint}

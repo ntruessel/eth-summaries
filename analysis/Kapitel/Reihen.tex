@@ -1,0 +1,66 @@
+% !TeX root = ../Main.tex
+\section{Reihen} 
+	\begin{definition}
+		Eine \highlight{Reihe} ist eine Folge der Partialsummen.
+	\end{definition}
+		\begin{shortcut} \hfill
+			\begin{itemize}
+				\item Die geometrische Reihe $ \sum\limits_{k = 0}^{\infty} q^k $ konvergiert für $\abs{q} < 1$ gegen $\frac{1}{1-q}$. $ \left( \sum\limits_{k = 0}^{n} q^k \text{ konvergiert für } \abs{q} \neq 1 \text{ gegen } \frac{1-q^{n+1}}{1-q} \right)$
+				\item Die harmonische Reihe $ \sum\limits_{k = 0}^{\infty} \frac{1}{k} $ divergiert.
+				\item Die alterniernede harmonische Reihe $ \sum\limits_{k = 0}^{\infty} \frac{(-1)^{k + 1}}{k} $ konvergiert gegen $ \log 2$
+				\item Die Zeta-Funktion $ \zeta(\alpha) = \sum\limits_{n = 1}^{\infty} \frac{1}{n^\alpha}$ konvergiert für $\alpha > 1$ und divergiert für $\alpha \leq 1$
+			\end{itemize}
+		\end{shortcut}
+	\begin{multicols}{2}
+		\begin{theorem}[Nullfolge]
+			$$ \lim\limits_{k \to \infty} a_k \neq 0 \quad\Rightarrow\quad \sum\limits_{k = 0}^{\infty} a_k \text{ divergiert.}$$
+		\end{theorem}
+		\begin{theorem}[Leibnitz-Kriterium]\hfill\\
+			Sei $(a_n)$ eine monoton fallend oder wachsende, reelle Nullfolge. Dann konvergiert die altenierende Reihe.
+		\end{theorem}
+		\begin{theorem}[Cauchy-Kriterium]\hfill\\
+			 Die Reihe $\sum\limits_{k = 0}^{\infty} a_k$ ist konvergent, genau dann wann $$\forall \varepsilon > 0 \, \exists n_0 \, : \,  \left\vert \sum\limits_{k = n}^m a_k \right\vert < \varepsilon \quad n,m > n_0 $$
+		\end{theorem}
+		\begin{theorem}[Majorantenkriterium]\hfill\\
+			Seien $\sum\limits_{k = 0}^{\infty} a_k, \sum\limits_{k = 0}^{\infty} b_k$ Reihen, so dass
+			\begin{enumerate}
+				\item $\exists k_0 \, \forall k \geq k_0 \, : \, \abs{a_k} \leq b_k$
+				\item $\sum\limits_{k = 0}^{\infty} b_k$ konvergiert
+			\end{enumerate}
+			so konvergiert auch $\sum\limits_{k = 0}^{\infty} a_k$\\
+			Analog funktioniert das \highlight{Minorantenkriterium} um Divergenz zu zeigen.
+		\end{theorem}
+		\begin{theorem}[Quotientenkriterium]\hfill\\
+			Sei $\forall k \, : \, a_k \neq 0$ 
+			\begin{enumerate}
+				\item Falls $ \limsup\limits_{k \to \infty} \abs{\frac{a_{k+1}}{a_k}} < 1 $, so ist $\sum\limits_{k = 0}^{\infty} a_k$ konvergent.
+				\item Falls $ \liminf\limits_{k \to \infty} \abs{\frac{a_{k+1}}{a_k}} > 1 $, so ist $\sum\limits_{k = 0}^{\infty} a_k$ divergent.
+			\end{enumerate}
+			Es handelt sich sogar um absolute Konvergenz.
+		\end{theorem}
+		\begin{theorem}[Wurzelkriterium]\hfill\\
+			Sei $(a_k)$ eine Folge in $\mathbb{R}$ oder $\mathbb{C}$
+			\begin{enumerate}
+				\item Falls $ \limsup\limits_{k \to \infty} \sqrt[k]{\abs{a_k}} < 1 $, so konvergiert $\sum\limits_{k = 0}^{\infty} a_k$.
+				\item Falls $ \limsup\limits_{k \to \infty} \sqrt[k]{\abs{a_k}} > 1 $, so divergiert $\sum\limits_{k = 0}^{\infty} a_k$.
+			\end{enumerate}
+			Es handelt sich sogar um absolute Konvergenz.
+		\end{theorem}
+		\begin{theorem}[Integral]
+			Sei $f:[1,\infty) \to \mathbb{R}^+$ monoton fallend. Dann konvergiert $\sum\limits_{k = 1}^{\infty}f(k)$ genau dann, wenn $\int\limits_{1}^{\infty}f(x) \d x$ existiert. Es gilt:
+			$$ 0 \leq \sum\limits_{k = 1}^{\infty}f(k) - \int\limits_{1}^{\infty}f(x) \d x \leq f(1)$$
+		\end{theorem}
+		\\[1em]
+		\begin{theorem}[Konvergenzradius]
+			Die Potenzreihe $p(z) = \sum\limits_{k = 0}^{\infty} c_k z^k$ hat den Konvergenzradius $\rho$:
+			$$ \rho = \frac{1}{\limsup\limits_{k \to \infty} \sqrt[k]{\abs{c_k}}} $$
+			oder einfacher (falls der Grenzwert existiert)
+			$$ \rho = \lim\limits_{k \to \infty} \abs{\frac{a_k}{a_{k + 1}}} $$
+			D.h. $\abs{z} < \rho \Rightarrow p(z)$ konvergiert.
+		\end{theorem}
+		\\[1em]
+		\begin{definition}[Absolute Konvergenz]\hfill\\
+			Die Reihe $\sum\limits_{k = 0}^{\infty} a_k$ konvergiert absolut, falls $\sum\limits_{k = 0}^{\infty} \abs{a_k}$ konvergiert.\\
+			Konvergiert eine Folge absolut, so können die Terme in beliebiger Reihenfolge summiert werden.
+		\end{definition}
+\end{multicols}		
