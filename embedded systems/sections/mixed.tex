@@ -1,0 +1,27 @@
+\section{Mixed Task Sets}
+A simple solution would be to schedule asynchronous tasks/events whenever there
+is time available. However this might lead to starvation.
+
+\subsection{Polling Server (RM)}
+A polling server is an additional periodic task which is used to serve aperiodic
+requests. An aperiodic task is schedulable if (sufficient but not necessary):
+\begin{equation*}
+	\left(1 + \ceil{\frac{C_a}{C_s}}\right)T_s \leq D_a
+\end{equation*}
+Where $C_a, C_s, D_a, T_s$ are the total computation time of the aperiodic
+request, the computation time of one server task, the deadline of the aperiodic
+request, and the period of the server task. It is assumed that one aperiodic
+request is served before another task arrives.
+
+\subsection{Total Bandwidth Server (EDF)}
+A certain cpu utilization (bandwidth) is reserved for the server.  When the
+$k$th aperiodic request arrives it receives the deadline
+\begin{equation*}
+	d_k = \max\left( r_k, d_{k-1} \right) + \frac{C_k}{U_s}
+\end{equation*}
+where $C_k$ is the total execution time of the request and $U_s$ is the
+utilization factor of the server. The request is then treated as a normal
+periodic task.
+
+The schedule is feasible iff $U_p + U_s \leq 1$. Where $U_p$ is the processor
+utilitation of the periodic tasks.
