@@ -1,0 +1,39 @@
+\section{Low Power Design}
+\begin{itemize}
+	\item $\alpha$ switching activity
+	\item $C_L$ load capacity
+	\item $f$ clock frequency
+	\item $V_{dd}$ supply voltage
+	\item $V_T$ threshold voltage ($V_T \ll V_{dd}$)
+\end{itemize}
+\begin{align*}
+	P &\sim \alpha C_L V_{dd}^2 f \\
+	\tau &\sim C_L \frac{V_{dd}}{\left(V_{dd} - V{T}\right)^2} \\
+	f_{max} &\sim V_{dd} \\
+	E &\sim \alpha C_L V_{dd}^2 \underbrace{\left(\text{\#cycles}\right)}_{f \cdot t}
+\end{align*}
+
+\subsection{YDS Algorithm}
+The YDS algorithm can be use to schadule tasks with dynamic voltage scaling such
+that the engergy consuption is minimal.
+
+We define
+\begin{align*}
+	V'([z, z']) &= \set{v_i \in V: z \leq a_i < d_i \leq z'} \\
+	G([z, z']) &= \sum_{v_i in V'([z,z'])} \frac{C_i}{z' - z}
+\end{align*}
+
+Algorithm:
+\begin{enumerate}
+	\item Calculate intensities
+	\item Schedule jobs in highest intensity interval using EDF, intensity as
+		frequency
+	\item Adjust arrival times and deadlines by excluding the interval, restart
+\end{enumerate}
+
+The online version continuously updates best schedule for all available tasks.
+It has at most 27 times higher energy consumption.
+
+\subsection{DPM}
+With dpm, make sleep periods as long as possible, reduce the amount of on/off
+transitions. Use YDS and round frequencies up.
