@@ -1,0 +1,13 @@
+\section{Priority Inheritance Protocol}
+\begin{itemize}
+	\item Tasks have both nominal priority $P_i$ and active priority $p_i \geq P_i$.
+		The tasks are sorted by nominal priority, highest first.
+	\item Tasks are scheduled by their active priority using FCFS for ties.
+	\item When $J_i$ is blocked, it transmits its active priority $p_i$ to the
+		blocking task, $p_k = p_i$
+	\item When $J_k$ exits the critical section, the highest priority job
+		blocked by $J_k$ is awakened. If no other jobs are blocked by $J_k$,
+		$p_k$ is set to $P_k$ otherwise to the highest priority of the jobs
+		blocked by $J_k$.
+	\item Priority inheritance is transitive.
+\end{itemize}
