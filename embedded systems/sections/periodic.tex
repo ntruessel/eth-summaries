@@ -1,0 +1,67 @@
+\section{Periodic Scheduling}
+Periodic scheduling is always preemptive.
+\begin{center}
+	{\renewcommand{\arraystretch}{2}
+	\begin{tabular}{|c|c|c|}
+		\hline
+							& Deadline = Period	& Deadline $\leq$ Period	\tabularnewline\hline
+		Static Priority		& Rate Monotonic	& Deadline Monotonic		\tabularnewline\hline
+		Dynamic Priority	& EDF				& EDF*						\tabularnewline\hline
+	\end{tabular}}
+\end{center}
+
+\subsection{Definitions}
+\begin{itemize}
+	\item $\Gamma = \set{\tau_1, \tau_2, \dots \tau_n}$	is set of periodic tasks.
+	\item $\tau_{i,j}$ is the $j$-th instance of task $\tau_i$.
+	\item $a_{i,j}, r_{i,j}, d_{i,j}, s_{i,j}, f_{i,j}$ are the same as for aperiodic tasks.
+	\item $\Phi_i$ is the phase of task $i$ (release time of the first instance).
+	\item $D_i$ is the relative deadline of task $i$.
+	\item $T_i$ is the period of the task (time between 2 releases).
+\end{itemize}
+
+The following hypotheses are assumed
+\begin{itemize}
+	\item $r_{i,j} = \Phi_i + (j - 1) T_i$
+	\item $C_i$ is constant.
+	\item $d_{i,j} = \Phi_i + (j - 1) T_i + D_i$
+	\item The tasks are independent
+\end{itemize}
+
+\subsection{Rate Monotonic}
+Always schedule the task that has the shortest period.
+Sufficient (but not necessary) schedulability test:
+\begin{equation*}
+	\sum_{i = 1}^n \frac{C_i}{T_i} \leq n \left( 2^{\frac{1}{n}} - 1 \right)
+\end{equation*}
+
+\subsection{Deadline Monotonic}
+Always schedule the task that has the shortest relative deadline.
+Sufficient (but not necessary) schedulability test:
+\begin{equation*}
+	\sum_{i = 1}^n \frac{C_i}{D_i} \leq n \left( 2^{\frac{1}{n}} - 1 \right)
+\end{equation*}
+
+\subsection{Necessary and sufficient schedulability test}
+We define the interference $I_i$ for task $i$ as
+\begin{equation*}
+	I_i(t) = \sum_{j = 1}^{i - 1} \ceil{\frac{t}{T_j}} C_j
+\end{equation*}
+where the tasks are ordered such that $m < n \iff D_m < D_n$
+
+\subsubsection{Algorithm}
+\begin{lstlisting}[escapeinside={(*}{*)}]
+foreach ((*$\tau_i$*) (*$\in$*) (*$\Gamma$*)) {
+	I = 0;
+	do {
+		R = I + (*$C_i$*);
+		if (R > (*$D_i$*)) return false; // unschedulable
+		I = (*$\sum\limits_{j = 1}^{i - 1} \ceil{\frac{\mathrm{R}}{T_j}} C_j$*);
+	} while (I + (*$C_i$*) > R);
+}
+return true;
+\end{lstlisting}
+
+\subsection{EDF}
+Always schedule the task with the earliest deadline.
+Schedulable with EDF iff $\sum\limits_{i = 1}^{n} \frac{C_i}{T_i} = U \leq 1$.

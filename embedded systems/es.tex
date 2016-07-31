@@ -9,6 +9,9 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
+\usepackage{listings}
+\usepackage{sourcecodepro}
+
 \author{Nicolas Trüssel}
 \title{Embedded Systems Summary}
 
@@ -20,91 +23,26 @@
 
 \setlength\parindent{0pt}
 
-\newcommand{\set}[1]{\lbrace #1 \rbrace}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+
 \DeclareMathOperator{\lcm}{lcm}
+
+\lstset{%
+	basicstyle=\ttfamily\small,
+	numberstyle=\tiny,
+	language=[Sharp]C,
+}
 
 \begin{document}
 \maketitle
 
-\section{Miscellaneous}
-Dependable means
-\begin{itemize}
-	\item Reliable (continue working correctly when it worked correctly before)
-	\item Maintainable (recover from errors)
-	\item Available	(probability that it's working)
-	\item Safety
-	\item Security
-\end{itemize}
+\include{sections/miscellaneous}
 
-Efficient in terms of:
-\begin{itemize}
-	\item Energy
-	\item Code size
-	\item Memory consumption
-	\item Run time
-	\item Weight
-	\item Cost
-\end{itemize}
+\include{sections/ttces}
 
-\section{Scheduling}
+\include{sections/aperiodic}
 
-\subsection{Definitions}
-\begin{itemize}
-	\item $J = \set{j_1, j_2, \dots, j_n}$ is a set of tasks.
-	\item $a_i$ or $r_i$ is the arrival / release time of task $i$.
-	\item $d_i$ is the deadline of task $i$.
-	\item $C_i$ is the total computation time of task $i$.
-	\item $c_i(t)$ is the the remaining execution time of task $i$ at time $t$.
-	\item $s_i$ is the start time of task $i$.
-	\item $f_i$ is the finish time of task $i$.
-	\item $L_i = f_i - d_i$ is the lateness of task $i$.
-	\item $E_i = \max\left(0, L_i\right)$ is the exceeding time or tardyness of task $i$.
-	\item $X_i = d_i - a_i - C_i$ is the laxity or slack of task $i$.
-\end{itemize}
-
-\subsection{Generic Time Triggered Cyclic Executive Scheduler}
-Let $f$ denote the frame length, $P$ the full period, $D(k)$ the relative deadline of task $k$,
-and $p(k)$ the period of task $k$ (how often it occurs). Then the following
-conditions have to be satisfied:
-\begin{itemize}
-	\item $\forall k . f \leq p(k)$ (at most one execution within a frame)
-	\item $P = \lcm_k\left(p(k)\right)$
-	\item $\forall k . f \geq C_k$ (processes start and complete within single frame)
-	\item $\forall k . 2f - \gcd\left(p(k),f\right) \leq D(k)$ (between release time and deadline of every task there is at least one frame boundary)
-\end{itemize}
-
-\subsection{Aperiodic Scheduling}
-\begin{center}
-	{\renewcommand{\arraystretch}{2}
-	\begin{tabular}{|c|c|c|}
-		\hline
-							& Equal arrival, non-preemptive	& Arbitrary arrival, preemptive \tabularnewline\hline
-		Independent Tasks	& EDD							& EDF							\tabularnewline\hline
-		Dependent Tasks		& LDF							& EDF*							\tabularnewline\hline
-	\end{tabular}}
-\end{center}
-
-\subsubsection{EDD}
-Schedule the tasks in order of non-decreasing deadlines. This minimizes the
-maximal lateness.
-
-\subsubsection{EDF}
-Always execute the task with the earliest absolute deadline.
-Schedulability test:
-\begin{equation*}
-	\forall i \in [n] . t + \sum_{k = 1}^{i} c_k(t) \leq d_i
-\end{equation*}
-
-\subsubsection{LDF}
-Among all tasks without successors select the task with the latest deadline. Put
-it in a stack. Repeat until no more tasks. Now execute tasks as they are on the
-stack.
-
-\subsubsection{EDF*}
-Modify arrival and deadline of each task and use EDF on modified tasks.
-\begin{align*}
-	r_j^* &= \max_{j}\left(r_j, \max_{i}\left(r_i^* + C_i | J_i \to J_j\right)\right) \\
-	d_i^* &= \min_{i}\left(d_i, \min_{j}\left(d_j^* - C_j | J_i \to J_j\right)\right)
-\end{align*}
+\include{sections/periodic}
 
 \end{document}

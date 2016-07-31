@@ -1,0 +1,10 @@
+\section{Generic Time Triggered Cyclic Executive Scheduler}
+Let $f$ denote the frame length, $P$ the full period, $D(k)$ the relative deadline of task $k$,
+$C(k)$ its execution time, and $p(k)$ the period of task $k$ (how often it occurs).
+Then the following conditions have to be satisfied:
+\begin{itemize}
+	\item $\forall k . f \leq p(k)$ (at most one execution within a frame)
+	\item $P = \lcm_k\left(p(k)\right)$
+	\item $\forall k . f \geq C(k)$ (processes start and complete within single frame)
+	\item $\forall k . 2f - \gcd\left(p(k),f\right) \leq D(k)$ (between release time and deadline of every task there is at least one frame boundary)
+\end{itemize}
