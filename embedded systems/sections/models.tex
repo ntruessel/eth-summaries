@@ -1,0 +1,95 @@
+\section{Models}
+\subsection{Sequence Graph}
+A sequence graph is a hierarchy of directed acyclic dependence graphs with
+dedicated start and end nodes. There are two kinds of nodes: task nodes and
+hierarchy nodes (CALL for module calls, BR for branches, LOOP for iterations).
+
+\subsubsection{Examples}
+
+\begin{multicols}{2}
+	\begin{lstlisting}
+x = a * b;
+y = x * c;
+z = a + b;
+submodule(a, z);
+
+void submodule(int m, int n) {
+	p = m + n;
+	q = m * n;
+}
+	\end{lstlisting}
+	\columnbreak
+	\begin{tikzpicture}[node distance = 1.8cm]
+		\node[nop]		(0)						{NOP};
+		\node[inner]	(1)	[below left of=0]	{$\times$};
+		\node[inner]	(2) [below of=1]		{$\times$};
+		\node[inner]	(3) [below right of=0]	{$+$};
+		\node[inner]	(4)	[below of=3]		{CALL};
+		\node[nop]		(5) [below right of=2]	{NOP};
+		\node[inner]	(7)	[below right of=4]	{$+$};
+		\node[nop]		(6)	[above right of=7]	{NOP};
+		\node[inner]	(8) [below right of=6]	{$\times$};
+		\node[nop]		(9)	[below right of=7]	{NOP};
+
+		\path	(0) edge[dashed]				(1)
+				(0) edge[dashed]				(3)
+				(1) edge[->]					(2)
+				(2) edge[dashed]				(5)
+				(3) edge[->]					(4)
+				(4) edge[dashed]				(5)
+				(4) edge[dashed, ->]			(6)
+				(6) edge[dashed]				(7)
+				(6) edge[dashed]				(8)
+				(7) edge[dashed]				(9)
+				(8) edge[dashed]				(9)
+				(9) edge[dashed, ->, bend left]	(4)
+		;
+	\end{tikzpicture}
+\end{multicols}
+
+\begin{lstlisting}
+x = a * b;
+y = x * c;
+z = a + b;
+
+if (z > 0) {
+	p = m + n;
+	q = m * n;
+}
+\end{lstlisting}
+
+\begin{tikzpicture}[node distance = 1.8cm]
+	\node[nop]		(0)							{NOP};
+	\node[inner]	(1)	[below left of=0]		{$\times$};
+	\node[inner]	(2) [below of=1]			{$\times$};
+	\node[inner]	(3) [below right of=0]		{$+$};
+	\node[inner]	(4)	[below of=3]			{CALL};
+	\node[nop]		(5) [below right of=2]		{NOP};
+
+	\node[inner]	(7)		[below right of=4]	{$+$};
+	\node[nop]		(6)		[above right of=7]	{NOP};
+	\node[inner]	(8)		[below right of=6]	{$\times$};
+	\node[nop]		(9)		[below right of=7]	{NOP};
+
+	\node[nop]		(11)	[right of=8]		{NOP};
+	\node[nop]		(10)	[above of=11]		{NOP};
+	\node[nop]		(12)	[below of=11]		{NOP};
+
+	\path	(0)		edge[dashed]					(1)
+			(0)		edge[dashed]					(3)
+			(1)		edge[->]						(2)
+			(2)		edge[dashed]					(5)
+			(3)		edge[->]						(4)
+			(4)		edge[dashed]					(5)
+			(4)		edge[dashed, ->]				(6)
+			(6)		edge[dashed]					(7)
+			(6)		edge[dashed]					(8)
+			(7)		edge[dashed]					(9)
+			(8)		edge[dashed]					(9)
+			(9)		edge[dashed, ->, bend left]		(4)
+			(4)		edge[dashed, ->, bend left] 	(10)
+			(10)	edge[dashed, ->]				(11)
+			(11)	edge[dashed, ->]				(12)
+			(12)	edge[dashed, ->, bend left=60]	(4)
+	;
+\end{tikzpicture}

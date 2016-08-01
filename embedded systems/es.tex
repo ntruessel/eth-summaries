@@ -6,11 +6,15 @@
 \usepackage{fancyhdr}
 
 \usepackage{amsmath}
-\usepackage{amsfonts}
 \usepackage{amssymb}
 
 \usepackage{listings}
 \usepackage{sourcecodepro}
+
+\usepackage{tikz}
+\usetikzlibrary{automata}
+
+\usepackage{multicol}
 
 \author{Nicolas Trüssel}
 \title{Embedded Systems Summary}
@@ -25,6 +29,7 @@
 
 \newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
 \newcommand{\emath}{\boldsymbol{e}}
 
 \DeclareMathOperator{\lcm}{lcm}
@@ -34,6 +39,9 @@
 	numberstyle=\tiny,
 	language=[Sharp]C,
 }
+
+\tikzset{nop/.style={circle, draw=black, dashed, fill=none, minimum width=1.3cm}}
+\tikzset{inner/.style={circle, draw=black, fill=none, minimum width=1.3cm}}
 
 \begin{document}
 \maketitle
@@ -53,5 +61,9 @@
 \include{sections/communication}
 
 \include{sections/low_power_design}
+
+\include{sections/models}
+
+\include{sections/synthesis}
 
 \end{document}
