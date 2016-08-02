@@ -66,4 +66,9 @@ The final values \texttt{R} are the longest response times.
 
 \subsection{EDF}
 Always schedule the task with the earliest deadline.
-Schedulable with EDF iff $\sum\limits_{i = 1}^{n} \frac{C_i}{T_i} = U \leq 1$.
+For $D_i = T_i$ the tasks are schedulable with EDF iff
+$\sum\limits_{i = 1}^{n} \frac{C_i}{T_i} = U \leq 1$.
+
+If $D_i \leq T_i$, then the test
+$\sum\limits_{i = 1}^{n} \frac{C_i}{D_i} \leq 1$ is sufficient but not
+neccesary.

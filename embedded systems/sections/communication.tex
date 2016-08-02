@@ -7,7 +7,8 @@ $p \left(1 - p\right)^{n-1}$) leads to utilization of $\frac{1}{\emath}$.
 Statically allocated slots, synchronization done by master.
 
 \subsection{CSMA/CD}
-Detect collitions, do exponential backoff in case of collisions.
+Detect collitions, do exponential backoff of $\set{0, \dots 2^n - 1}$ for $n$th
+collision (possibly with upper bound on n).
 
 \subsection{Token Ring}
 Pass token around, attach to token.
