@@ -50,8 +50,9 @@ We define the interference $I_i$ for task $i$ as
 where the tasks are ordered such that $m < n \iff D_m < D_n$
 
 \subsubsection{Algorithm}
+Process the tasks by relative deadlines (longest first).
 \begin{lstlisting}[escapeinside={(*}{*)}]
-foreach ((*$\tau_i$*) (*$\in$*) (*$\Gamma$*)) {
+foreach ((*$\tau_i$*) (*$\in$*) (*$\Gamma$*), with decreasing relative deadlines) {
 	I = 0;
 	do {
 		R = I + (*$C_i$*);
