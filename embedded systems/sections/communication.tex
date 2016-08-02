@@ -8,7 +8,8 @@ Statically allocated slots, synchronization done by master.
 
 \subsection{CSMA/CD}
 Detect collitions, do exponential backoff of $\set{0, \dots 2^n - 1}$ for $n$th
-collision (possibly with upper bound on n).
+collision (possibly with upper bound on n). The wait time is twice the round
+trip time.
 
 \subsection{Token Ring}
 Pass token around, attach to token.
@@ -51,3 +52,8 @@ synchronize and connnect.
 A slave can be in multiple states, active, hold (not processing date packtes),
 sniff (awaken in regular time intervals), and park (no connection but still
 synchronized).
+
+\subsection{Packet Details}
+Total packet length is either 366 bits, 1626 bits or 2870 bits for 1, 3, and 5
+slot packets respectively. Packet length in bits corresponds to $\mu$s send
+time. For unprotected data, the payload is 216 bits, 1464 bits and 2712 bits.
