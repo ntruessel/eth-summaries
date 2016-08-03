@@ -48,6 +48,20 @@ One might add additional constraints as weighted edges in the sequence graph,
 which can be resolved using Bellman Ford to find the single source longest path.
 Set the weight of the normal edges to their execution times.
 
+\begin{lstlisting}[escapeinside={(*}{*)}]
+BELLMAN-FORD((*$V_S$*), (*$E_S$*), W) {
+	(*$\tau_0^0$*) = 0;
+	for (int i = 0; i < (*$\abs{V_S}$*); i++) (*$\tau_i^0 = w(v_0, v_i)$*);
+	for (int j = 0; i < (*$\abs{V_S}$*); i++) {
+		for (int i = 0; i < (*$\abs{V_S}$*); i++) {
+			(*$\tau_i^{j+1}$*) = (*$\max\set{\tau_i^j, \tau_k^j + w(v_k, v_i) | k \neq i}$*);
+		}
+		if ((*$\forall i \,.\, \tau_i^{j+1} = \tau_i^j$*)) return true; // success
+	}
+	return false; // failed
+}
+\end{lstlisting}
+
 \subsubsection{Example constraints}
 \begin{tikzpicture} [node distance=1.5cm]
 	\tikzset{nop/.append style={minimum width=5mm}}
