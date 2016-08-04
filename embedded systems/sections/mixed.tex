@@ -13,6 +13,9 @@ request, the computation time of one server task, the deadline of the aperiodic
 request, and the period of the server task. It is assumed that one aperiodic
 request is served before another task arrives.
 
+When no task is available and the server has highest priority, the server looses
+its timeslot to the other tasks.
+
 \subsection{Total Bandwidth Server (EDF)}
 A certain cpu utilization (bandwidth) is reserved for the server.  When the
 $k$th aperiodic request arrives it receives the deadline
